@@ -86,6 +86,10 @@ Utiliser les feuilles de style (CSS) et les bases d'ergonomie logicielle pour fa
 
 NB : La priorité reste le code et les fonctionnalités, attention à ne pas perdre trop de temps sur la forme.
 
+## Notre choix
+
+Nous avons choisi de travailler sur l'ultimate, un sport collectif utilisant un disque opposant deux équipes de sept joueurs.
+
 ## Langages
 
 - HTML & CSS
