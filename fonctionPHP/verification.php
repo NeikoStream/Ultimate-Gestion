@@ -3,10 +3,10 @@ session_start();
 if(isset($_POST['username']) && isset($_POST['password']))
 {
  // connexion à la base de données
- $db_username = 'ultimeuser';
- $db_password = 'e3F?y9&hlZv#';
- $db_name = 'neikofr_ultimate';
- $db_host = 'ni-web-01.srv.nihost.fr:2083';
+ $db_username = 'u161682765_ultimatebd';
+ $db_password = '7>vEV#s9t';
+ $db_name = 'u161682765_ultimate';
+ $db_host = '153.92.220.151:3306';
  $db = mysqli_connect($db_host, $db_username, $db_password,$db_name)
  or die('could not connect to database');
  
@@ -25,7 +25,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
  if($count!=0) // nom d'utilisateur et mot de passe correctes
  {
  $_SESSION['username'] = $username;
- header('Location: principale.php');
+ header('Location: ../index.php');
  }
  else
  {
