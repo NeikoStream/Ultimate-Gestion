@@ -1,10 +1,14 @@
 * {
   transition: all 0.3s ease-in-out;
+  margin: 0;
 }
 
 .container {
   clear: both;
   overflow: auto;
+  background-color: rgb(199, 199, 199);
+  width: 100vw;
+  left: 0;
 }
 
 .Texte-Logo{
@@ -23,12 +27,12 @@ nav {
 .logo img {
   float: left;
   width: 90px;
-  margin-left: 5%;
+  margin-left: 3%;
 }
 
 ul li {
   display: inline-block;
-  padding: 20px;
+  padding: 35px;
   font-size: 20px;
   font-family: raleway;
   color: black;
