@@ -1,0 +1,30 @@
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+.container {
+  clear: both;
+  overflow: auto;
+}
+
+nav {
+  float: right;
+  margin-right: 10%;
+}
+
+.logo img {
+  float: left;
+  width: 90px;
+  margin-left: 5%%;
+}
+
+ul li {
+  display: inline-block;
+  padding: 20px;
+  font-size: 20px;
+  font-family: raleway;
+}
+
+ul li:hover {
+  color: orange;
+}
