@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<meta charset="utf-8">
-		<title> </title>
-    </head>
+<?php 
+$title = "Accueil";
+require 'header.php'; ?>
 
-    <body>
 		<section class="joueur formul">
             <h2 class="cache">Formulaire d'inscription d'un joueur</h2>
             <form action="ajoutJoueur.php" method="post">
