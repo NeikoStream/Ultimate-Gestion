@@ -20,7 +20,7 @@
         <ul>
           <a href=""><li>Accueil</li></a>
           <a href=""><li>Match</li></a>
-          <a href=".../page/saisieJoueur.php"><li>Joueurs</li></a>
+          <a href="page/saisieJoueur.php"><li>Joueurs</li></a>
           <a href=""><li>Statistique</li></a>
         </ul>
       </nav>

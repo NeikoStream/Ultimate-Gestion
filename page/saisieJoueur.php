@@ -1,7 +1,14 @@
 <?php 
+
+//Partie empechant l'utilisateur non connecter a accéder au contenue (mettre en commentaire pour modifier le code facilement)
+require '../fonctionPHP/authentification.php';
+forcer_utilisateur_connecte();
+//Appel du header
 $title = "Accueil";
 require 'header.php'; ?>
 
+<!--Partie HTML --> 
+<html>
 		<section class="joueur formul">
             <h2 class="cache">Formulaire d'inscription d'un joueur</h2>
             <form action="ajoutJoueur.php" method="post">
