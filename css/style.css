@@ -7,6 +7,14 @@
   overflow: auto;
 }
 
+.Texte-Logo{
+  margin: auto;
+  display: inline-block;
+  padding: 35px;
+  font-size: 20px;
+  font-family: raleway;
+}
+
 nav {
   float: right;
   margin-right: 10%;
@@ -15,7 +23,7 @@ nav {
 .logo img {
   float: left;
   width: 90px;
-  margin-left: 5%%;
+  margin-left: 5%;
 }
 
 ul li {
@@ -23,6 +31,7 @@ ul li {
   padding: 20px;
   font-size: 20px;
   font-family: raleway;
+  color: black;
 }
 
 ul li:hover {
