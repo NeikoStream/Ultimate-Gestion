@@ -1,5 +1,11 @@
-<?php
-?>
+<?php 
+
+//Partie empechant l'utilisateur non connecter a accéder au contenue (mettre en commentaire pour modifier le code facilement)
+require '../fonctionPHP/authentification.php';
+forcer_utilisateur_connecte();
+//Appel du header
+$title = "Accueil";
+require 'header.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

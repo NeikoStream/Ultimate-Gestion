@@ -4,7 +4,7 @@
 require '../fonctionPHP/authentification.php';
 forcer_utilisateur_connecte();
 //Appel du header
-$title = "Accueil";
+$title = "Saisie Joueur";
 require 'header.php'; ?>
 
 <!--Partie HTML --> 
