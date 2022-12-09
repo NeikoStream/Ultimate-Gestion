@@ -8,10 +8,11 @@ function est_connecte(): bool {
     return !empty($_SESSION['connecte']);
 }
 
+
 //fonction qui empeche l'utilisateur de voir la page
 function forcer_utilisateur_connecte(): void {
     if(!est_connecte()){
-        header('Location: login.php'); // Renvoie vers -> login.php
+        header('Location: ../index.php'); // Renvoie vers -> la page de login a savoir l'index
         exit(); //permet d'arreter le script ici (il ne verra pas la suite du code)
     }
 }

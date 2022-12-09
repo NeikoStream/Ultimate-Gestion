@@ -18,12 +18,12 @@
  <h1>Connexion</h1>
  
  <label><b>Nom d'utilisateur</b></label>
- <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+ <input id="username" type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
 
  <label><b>Mot de passe</b></label>
- <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+ <input id="password" type="password" placeholder="Entrer le mot de passe" name="password" required>
 
- <input type="submit" id='submit' value='LOGIN' >
+ <input id="login_btn"type="submit" id='submit' value='LOGIN' >
  <?php
  if(isset($_GET['erreur'])){
  $err = $_GET['erreur'];

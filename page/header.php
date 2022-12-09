@@ -17,12 +17,13 @@
       <h1 class="Texte-Logo">
         Toulouse Ultimate Club
       </h1>
-      <nav>
+      <nav class="Menu-boutons">
         <ul>
           <a href="Accueil.php"><li>Accueil</li></a>
           <a href="match.php"><li>Matchs</li></a>
           <a href="saisieJoueur.php"><li>Joueurs</li></a>
           <a href=""><li>Statistiques</li></a>
+          <a href="../fonctionPHP/logout.php"><li id="logout">Deconnexion</li></a>
         </ul>
       </nav>
     </header>

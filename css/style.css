@@ -37,8 +37,7 @@
 }
 
 /* Full-width inputs */
-input[type="text"],
-input[type="password"] {
+#username,#password{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -48,7 +47,7 @@ input[type="password"] {
 }
 
 /* Set a style for all buttons */
-input[type="submit"] {
+#login_btn{
   background-color: #a0bf53;
   color: white;
   padding: 14px 20px;
@@ -57,13 +56,18 @@ input[type="submit"] {
   cursor: pointer;
   width: 100%;
 }
-input[type="submit"]:hover {
+#login_btn:hover {
   background-color: #8ca749;
   color: #000000;
   border: 0px solid #000000;
 }
 
 /*Partie Menu*/
+
+/*Partie responsive du menu*/
+
+
+
 
 .container {
   clear: both;
@@ -81,7 +85,7 @@ input[type="submit"]:hover {
   font-family: raleway;
 }
 
-nav {
+.Menu-boutons {
   float: right;
   margin-right: 10%;
 }
@@ -92,7 +96,7 @@ nav {
   margin-left: 3%;
 }
 
-ul li {
+.Menu-boutons ul li {
   display: inline-block;
   padding: 35px;
   font-size: 20px;
@@ -100,7 +104,15 @@ ul li {
   color: black;
 }
 
-ul li:hover {
+.Menu-boutons ul li:hover {
+  color: orange;
+}
+
+.Menu-boutons #logout {
+  color: red;
+}
+
+.Menu-boutons #logout:hover {
   color: orange;
 }
 
