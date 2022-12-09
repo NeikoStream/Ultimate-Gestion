@@ -63,7 +63,7 @@ input[type="submit"]:hover {
   border: 0px solid #000000;
 }
 
-/*Partie Pages*/
+/*Partie Menu*/
 
 .container {
   clear: both;
@@ -102,4 +102,47 @@ ul li {
 
 ul li:hover {
   color: orange;
+}
+
+/*Page Accueil*/
+
+#Titre-accueil {
+  margin-top: 2%;
+  text-align: center;
+}
+
+.Container-match {
+  width: 90vw;
+  margin: 0 auto;
+  margin-top: 2%;
+  padding: 30px;
+  border: 1px solid #f1f1f1;
+  background: #fff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.match {
+  clear: both;
+  overflow: auto;
+  background-color: rgb(239, 239, 239);
+  width: 100%;
+  left: 0;
+}
+.Equipe1 {
+  display: flexbox;
+  vertical-align: top;
+  background-color: #8ca749;
+}
+
+.Equipe2 {
+  display: inline-block;
+  float: right;
+  vertical-align: middle;
+  background-color: #8ca749;
+}
+
+.LogoEquipe {
+  display: inline-block;
+
+  width: 50px;
 }

@@ -20,9 +20,9 @@
       <nav>
         <ul>
           <a href="Accueil.php"><li>Accueil</li></a>
-          <a href="saisieMatch.php"><li>Match</li></a>
+          <a href="match.php"><li>Matchs</li></a>
           <a href="saisieJoueur.php"><li>Joueurs</li></a>
-          <a href=""><li>Statistique</li></a>
+          <a href=""><li>Statistiques</li></a>
         </ul>
       </nav>
     </header>
