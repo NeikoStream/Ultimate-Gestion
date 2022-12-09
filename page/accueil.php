@@ -12,10 +12,22 @@ require 'header.php'; ?>
     <div class="match">
         <div class="Equipe1">
             <img class="LogoEquipe" src="../img/Equipe/TFC_LOGO.png" alt="">
-            <h1>5</h1>
+            
+        </div>
+        <div class="score">
+            <h1>Score</h1>
+        </div>
+
+        <div class="SeparationScore">
+            <button>Voir en détail</button>
+        </div>
+        <div class="score">
+            <h1>Score</h1>
+        </div>
+
+        
         <div class="Equipe2">
             <img class="LogoEquipe" src="../img/Equipe/TFC_LOGO.png" alt="">
-            <h1>5</h1>
         </div>
         
     </div>
