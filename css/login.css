@@ -36,7 +36,7 @@
    
    /* Set a style for all buttons */
    input[type=submit] {
-    background-color: #53af57;
+    background-color: #a0bf53;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -45,7 +45,7 @@
     width: 100%;
    }
    input[type=submit]:hover {
-    background-color: rgb(134, 194, 128);
+    background-color: #8ca749;
     color: #000000;
     border: 0px solid #000000;
    }
