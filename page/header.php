@@ -9,19 +9,20 @@
     <title><?php if (isset($title)) {echo $title;} else { echo 'Ultimate';} ?></title>
   </head>
   <body>
-    <div class="container">
+    <header class="container">
       <div class="logo">
         <img src="<?php if (isset($cheminLogo)) {echo $cheminLogo;} else { echo '../img/frisbee.png';} ?>" alt="" width="130" />
         
       </div>
-      <div class="Texte-Logo">Toulouse Ultimate Club
-      </div>
+      <h1 class="Texte-Logo">
+        Toulouse Ultimate Club
+      </h1>
       <nav>
         <ul>
-          <a href=""><li>Accueil</li></a>
-          <a href=""><li>Match</li></a>
-          <a href="page/saisieJoueur.php"><li>Joueurs</li></a>
-          <a href=""><li>Statistique</li></a>
+          <a href="Accueil.php"><li>Accueil</li></a>
+          <a href="match.php"><li>Matchs</li></a>
+          <a href="saisieJoueur.php"><li>Joueurs</li></a>
+          <a href=""><li>Statistiques</li></a>
         </ul>
       </nav>
-    </div>
+    </header>

@@ -4,12 +4,12 @@
 require '../fonctionPHP/authentification.php';
 forcer_utilisateur_connecte();
 //Appel du header
-$title = "Accueil";
+$title = "Saisie Joueur";
 require 'header.php'; ?>
 
 <!--Partie HTML --> 
 <html>
-		<section class="joueur formul">
+		<section>
             <h2 class="cache">Formulaire d'inscription d'un joueur</h2>
             <form action="ajoutJoueur.php" method="post">
                 <fieldset>

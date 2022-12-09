@@ -1,7 +1,69 @@
+/* CSS RESETTING */
 * {
+  margin: 0px;
+  padding: 0px;
   transition: all 0.3s ease-in-out;
-  margin: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
+
+/*Partie Login */
+.body_log {
+  background-color: #a0bf53;
+}
+
+#container {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 10%;
+  padding: 30px;
+  border: 1px solid #f1f1f1;
+  background: #fff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+/* Logo*/
+#container img {
+  width: 20%;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  display: flex;
+}
+
+#container h1 {
+  width: 38%;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+/* Full-width inputs */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+input[type="submit"] {
+  background-color: #a0bf53;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+input[type="submit"]:hover {
+  background-color: #8ca749;
+  color: #000000;
+  border: 0px solid #000000;
+}
+
+/*Partie Menu*/
 
 .container {
   clear: both;
@@ -11,7 +73,7 @@
   left: 0;
 }
 
-.Texte-Logo{
+.Texte-Logo {
   margin: auto;
   display: inline-block;
   padding: 35px;
@@ -40,4 +102,46 @@ ul li {
 
 ul li:hover {
   color: orange;
+}
+
+/*Page Accueil*/
+
+#Titre-accueil {
+  margin-top: 2%;
+  text-align: center;
+}
+
+.Container-match {
+  width: 90vw;
+  margin: 0 auto;
+  margin-top: 2%;
+  padding: 30px;
+  border: 1px solid #f1f1f1;
+  background: #fff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.match {
+  display: flex;
+  justify-content: space-between;
+  clear: both;
+  overflow: auto;
+  background-color: rgb(239, 239, 239);
+  width: 100%;
+  left: 0;
+}
+.Equipe1 {
+  vertical-align: top;
+  background-color: #8ca749;
+}
+
+.Equipe2 {
+  float: right;
+  vertical-align: middle;
+  background-color: #8ca749;
+}
+
+.LogoEquipe {
+  width: 50px;
+  height: 50px;
 }

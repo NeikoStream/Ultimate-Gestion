@@ -25,7 +25,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
  if($count!=0) // nom d'utilisateur et mot de passe correctes
  {
  $_SESSION['connecte'] = $username;
- header('Location: ../index.php');
+ header('Location: ../page/accueil.php');
  }
  else
  {
