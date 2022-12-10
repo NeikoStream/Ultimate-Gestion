@@ -92,6 +92,6 @@ Nous avons choisi de travailler sur l'ultimate, un sport collectif utilisant un 
 
 ## Langages
 
-- HTML & CSS
 - PHP
+- HTML & CSS
 - PHPmyadmin
