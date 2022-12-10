@@ -5,6 +5,16 @@
   transition: all 0.3s ease-in-out;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+    
+    
+}
+ul {
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+  color: black;
 }
 
 /*Partie Login */
@@ -77,44 +87,115 @@
   left: 0;
 }
 
-.Texte-Logo {
-  margin: auto;
-  display: inline-block;
-  padding: 35px;
+
+
+.navbar {
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+}
+.logo{
+  display: flex;
+  align-items: center;
   font-size: 20px;
+}
+.Texte-Logo {
+  padding: 50px;
   font-family: raleway;
+  
 }
 
-.Menu-boutons {
-  float: right;
-  margin-right: 10%;
+.navbar .nav-links ul{
+  display: flex;
 }
 
-.logo img {
-  float: left;
-  width: 90px;
-  margin-left: 3%;
-}
 
-.Menu-boutons ul li {
-  display: inline-block;
-  padding: 35px;
+
+.navbar .nav-links ul li a{
+  margin: 0 25px;
   font-size: 20px;
   font-family: raleway;
   color: black;
 }
 
-.Menu-boutons ul li:hover {
+.navbar ul li a:hover {
   color: orange;
 }
 
-.Menu-boutons #logout {
+.navbar #logout a{
   color: red;
 }
 
-.Menu-boutons #logout:hover {
+.navbar #logout a:hover {
   color: orange;
 }
+.navbar #menuHamb{
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  width: 35px;
+  display: none;
+}
+
+.nav-links.mobile-menu{
+  margin-left : 0;
+}
+
+@media screen and (max-width:1032px) {
+  .navbar{
+    padding: 0;
+  }
+  .nav-links{
+    top:0;
+    left: 0;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.756);
+    backdrop-filter: blur(8px);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left : -100%;
+  }
+
+  .nav-links ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbar .logo{
+    display: absolute;
+    top: 200px;
+    left: 50px;
+
+  }
+
+  .logo{
+    padding: 50px;
+  }
+
+  .Texte-Logo{
+    display: none;
+  }
+  .navbar #menuHamb{
+    display: block;
+  }
+
+  .navbar .nav-links ul li{
+    margin: 25px 0;
+  }
+
+  .navbar .nav-links ul li a{
+    font-size: 3.5em;
+    font-family: raleway;
+    color: black;
+  }
+}
+
 
 /*Page Accueil*/
 
@@ -151,7 +232,7 @@
 }
 
 .score {
-  margin-top: 20px;
+  margin-top: 2em;
 }
 
 .SeparationScore {
@@ -164,7 +245,7 @@
 }
 
 .LogoEquipe {
-  width: 50px;
-  height: 50px;
-  display: flex;
+  width: 90px;
+  height: 90px;
 }
+
