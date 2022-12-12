@@ -1,6 +1,6 @@
 <?php
 $db_username = 'u161682765_ultimatebd';
-$db_password = '7>vEV#s9t';
+$db_password = 'S6:PgVscsH*j';
 $db_name = 'u161682765_ultimate';
 $db_host = '153.92.220.151:3306';
 
