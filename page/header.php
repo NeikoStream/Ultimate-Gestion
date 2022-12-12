@@ -36,7 +36,7 @@
         <li><a href="match.php">
             Matchs
           </a></li>
-        <li><a href="saisieJoueur.php">
+        <li><a href="joueurs.php">
             Joueurs
           </a></li>
         <li><a href="">

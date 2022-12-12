@@ -12,6 +12,10 @@ ul {
   list-style-type: none;
 }
 
+li {
+  list-style-type: none;
+}
+
 a{
   text-decoration: none;
   color: black;
@@ -250,3 +254,24 @@ a{
   height: 90px;
 }
 
+/*Page joueurs*/
+
+.listejoueurs{
+  display: flex;
+  margin:1%;
+}
+
+.joueur{
+  display: flex;
+  width: 20%;
+  border: 1px solid #f1f1f1;
+  background: #fff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  /*margin:1%;*/
+  margin: auto; /* Important */
+  text-align: center;
+}
+
+.ajoutJoueur{
+  
+}
