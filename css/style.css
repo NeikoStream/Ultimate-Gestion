@@ -222,6 +222,7 @@ a{
   flex-direction: row;
   vertical-align: center;
   justify-content: space-between;
+  margin-bottom: 2%;
 }
 .Equipe1 {
   flex-direction: row;
