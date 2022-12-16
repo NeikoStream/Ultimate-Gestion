@@ -255,23 +255,64 @@ a{
 }
 
 /*Page joueurs*/
+.titre_joueurs{
+  text-align:center;
+  margin:1%;
+}
 
 .listejoueurs{
   display: flex;
+  flex-wrap: wrap;
   margin:1%;
 }
 
 .joueur{
   display: flex;
-  width: 20%;
+  justify-content: center;
+  width: 25%;
   border: 1px solid #f1f1f1;
-  background: #fff;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  /*margin:1%;*/
-  margin: auto; /* Important */
+  text-align: center;
+  padding:1%;
+  margin:1%;
+}
+
+.joueur ul{
+  width: 100%;
+}
+
+.photo_joueur{
   text-align: center;
 }
 
+.joueur h3{
+  text-align: center;
+  margin:1%;
+}
+
+.statut_joueur{
+  text-align: center;
+  margin:1%;
+  color:gray
+}
+
+.info_joueurs{
+  text-align: left;
+}
+
+.note{
+  width: 100%;
+  border: solid grey 1px;
+  text-align: justify;
+  min-height:10%;
+}
+
+.n_licence{
+  text-align: right;
+  vertical-align:bottom;
+}
+
 .ajoutJoueur{
-  
+  line-height: 20em;
+  align-items: center;
 }
