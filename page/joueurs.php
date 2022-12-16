@@ -17,23 +17,26 @@ $query= $linkpdo->prepare('SELECT * FROM joueur');
 $query->execute();
 
 ?>
-    <h2>Liste des joueurs</h2>
+    <h2 class="titre_joueurs">Liste des joueurs</h2>
     <li class="listejoueurs">
         <?php while($row = $query->fetch()): ?>
-        <ul class="joueur">
-            <a href="modifierJoueur.php">
-                <img class=photo_joueurs src=<?php echo htmlspecialchars($row['photo']); ?> alt="photo de <?php echo htmlspecialchars($row['prenom']); ?>
-                <?php echo htmlspecialchars($row['nom']); ?>" width="100">
-                <p><?php echo htmlspecialchars($row['prenom']); ?><?php echo htmlspecialchars($row['nom']); ?></p>
-                <p><?php echo htmlspecialchars($row['numero_licence']); ?></p>
-                <p><?php echo htmlspecialchars($row['date_naissance']); ?></p>
-                <p><?php echo htmlspecialchars($row['taille']); ?> cm</p>
-                <p><?php echo htmlspecialchars($row['poids']); ?> kg</p>
-                <p><?php echo htmlspecialchars($row['poste_prefere']); ?></p>
-                <p><?php echo htmlspecialchars($row['note_perso']); ?></p>
-                <p><?php echo htmlspecialchars($row['statut']); ?></p>
+            <a class="joueur" href="modifierJoueur.php">
+                <ul>
+                    <img class="photo_joueur" src=<?php echo htmlspecialchars($row['photo']); ?> alt="photo de <?php echo htmlspecialchars($row['prenom']); ?>
+                    <?php echo htmlspecialchars($row['nom']); ?>" width="100">
+                    <h3><?php echo htmlspecialchars($row['prenom']); ?> <?php echo htmlspecialchars($row['nom']); ?></h3>
+                    <p class="statut_joueur"><?php echo htmlspecialchars($row['statut']); ?></p>
+                    <br/>
+                    <p class="info_joueurs">Poste préféré : <?php echo htmlspecialchars($row['poste_prefere']); ?></p>
+                    <p class="info_joueurs">Taille : <?php echo htmlspecialchars($row['taille']); ?> cm</p>
+                    <p class="info_joueurs">Poids : <?php echo htmlspecialchars($row['poids']); ?> kg</p>
+                    <p class="info_joueurs">Date de naissance : <?php echo htmlspecialchars($row['date_naissance']); ?></p>
+                    <p class="info_joueurs">Commentaire</p>
+                    <div class="note"><p><?php echo htmlspecialchars($row['note_perso']); ?></p></div>
+                    <br/>
+                    <p class="n_licence"><?php echo htmlspecialchars($row['numero_licence']); ?></p>
+                </ul>
             </a>
-        </ul>
         <?php endwhile; ?>
         <ul class="ajoutJoueur joueur"><a href="saisieJoueur.php">Ajouter un joueur</a></ul>
     </li>
