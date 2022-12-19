@@ -137,6 +137,7 @@ a{
   right: 50px;
   width: 35px;
   display: none;
+  z-index: 1;
 }
 
 .nav-links.mobile-menu{
@@ -161,6 +162,7 @@ a{
     justify-content: center;
     align-items: center;
     margin-left : -100%;
+    z-index: 1;
   }
 
   .nav-links ul{
@@ -317,10 +319,6 @@ a{
 
 /*Partie Statistique*/
 
-.winrate{
-  position: relative;  
-
-}
 
 .progress-circle{
   position: relative;             /* pour servir de référent */
