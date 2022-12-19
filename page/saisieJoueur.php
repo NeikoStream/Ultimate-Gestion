@@ -31,10 +31,10 @@ require 'header.php'; ?>
                         <input type="date" name="date_naissance_saisie" id="date_naissance_saisie" placeholder="Ex : 21/02/1999" required/><br>
 						
 						<label for="taille">Taille :</label>
-                        <input type="number" name="taille_saisie" id="taille_saisie" placeholder="0" min="0" max="400" required/>cm<br>
+                        <div class="mesure"><input type="number" name="taille_saisie" id="taille_saisie" placeholder="0" min="0" max="400" required/><p>cm</p></div><br>
 						
 						<label for="poids">Poids :</label>
-                        <input type="number" name="poids_saisie" id="poids_saisie" placeholder="0" min="1" max="400" required/>kg<br>
+                        <div class="mesure"><input type="number" name="poids_saisie" id="poids_saisie" placeholder="0" min="1" max="400" required/><p>kg</p></div><br>
 						
 						<label for="poste_prefere">Poste préféré :</label>
                         <select name="poste_saisie" id="poste_saisie" required>
