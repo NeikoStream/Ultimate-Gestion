@@ -1,6 +1,6 @@
 <?php 
 
-//Partie empechant l'utilisateur non connecter a accéder au contenue (mettre en commentaire pour modifier le code facilement)
+//Partie empechant l'utilisateur non connecter a accéder au contenue (metthe en commentaire pour modifier le code facilement)
 require '../fonctionPHP/authentification.php';
 forcer_utilisateur_connecte();
 //Appel du header
@@ -18,7 +18,7 @@ require '../fonctionPHP/connexionbd.php';
     $defaites = $linkpdo->prepare('SELECT COUNT(*) FROM `matchs` WHERE score_equipe < score_adverse');
     $nuls = $linkpdo->prepare('SELECT COUNT(*) FROM `matchs` WHERE score_equipe = score_adverse');
  
-    ///Liens entre variables PHP et marqueurs
+    ///Liens enthe variables PHP et marqueurs
    $victoires->execute();
    $defaites->execute();
    $nuls->execute();
@@ -35,5 +35,23 @@ require '../fonctionPHP/connexionbd.php';
 
 <p>Victoire : <?php echo $victoires[0]?> Défaites : <?php echo $defaites[0]?> Nuls : <?php echo $nuls[0]?></p>
 </div>
+
+<table id="statjoueur">
+  <thead id="colonne">
+    <tr>
+      <th>Joueurs</th>
+      <th>Statut</th>
+      <th>Poste préféré</th>
+      <th>Statut</th>
+      <th>Total titulaire</th>
+      <th>Total remplaçant</th>
+      <th>moyenne des évaluations</th>
+      <th>pourcentage de matchs gagnés</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  </tbody>
+</table>
 
 <script src="../js/winrate.js"></script>

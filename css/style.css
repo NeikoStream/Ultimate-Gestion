@@ -370,3 +370,33 @@ a{
   border-radius: 50%;
   box-shadow: 0 0 .5em rgba(0, 0, 0, .5) inset;
 }
+
+/*Tableau*/
+
+#colonne{
+    background-color: #3f87a6;
+    color: #fff;
+}
+
+#donneeJoueur {
+    background-color: #e4f0f5;
+}
+
+#statjoueur {
+    border-collapse: collapse;
+    border: 2px solid rgb(200, 200, 200);
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    font-size: 1em;
+    width: 100vw;
+}
+
+#colonne,#donneeJoueur td,
+th {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 5px 10px;
+}
+
+#colonne,#donneeJoueur td {
+    text-align: center;
+}
