@@ -11,40 +11,50 @@ require 'header.php'; ?>
 <html>
 		<section>
             <h2 class="cache">Formulaire d'inscription d'un joueur</h2>
-            <form action="ajoutJoueur.php" method="post">
+            <form action="../fonctionPHP/ajoutJoueur.php" method="post">
                 <fieldset>
                     <legend>Inscription d'un joueur</legend>
                     <div class="infos">
-                        <label for="user_nom">Nom :</label>
+                        <label for="nom">Nom :</label>
                         <input type="text" name="nom_saisie" id="nom_saisie" placeholder="Ex : Dubois" autofocus required/><br>
         
-                        <label for="user_prenom">Prénom :</label>
+                        <label for="prenom">Prénom :</label>
                         <input type="text" name="prenom_saisie" id="prenom_saisie" placeholder="Ex : Emile" required/><br>
 						
-						<label for="user_prenom">Photo :</label>
-                        <input type="text" name="photo_saisie" id="photo_saisie" required/><br>
+						<label for="photo">Photo :</label>
+                        <input type="file" name="photo_saisie" id="photo_saisie" accept="image/png, image/jpeg"/><br>
 						
-						<label for="user_prenom">Numéro de licence :</label>
-                        <input type="text" name="num_licence_saisie" id="num_licence_saisie" placeholder="Ex : TU678UO7TOIYYTHU" required/><br>
+						<label for="numero_licence">Numéro de licence :</label>
+                        <input type="text" name="num_licence_saisie" id="num_licence_saisie" placeholder="Ex : 1234567890" required/><br>
 						
-						<label for="user_prenom">Date de naissance :</label>
-                        <input type="text" name="date_naissance_saisie" id="date_naissance_saisie" placeholder="Ex : 21/02/1999" required/><br>
+						<label for="date_naissance">Date de naissance :</label>
+                        <input type="date" name="date_naissance_saisie" id="date_naissance_saisie" placeholder="Ex : 21/02/1999" required/><br>
 						
-						<label for="user_prenom">Taille :</label>
-                        <input type="text" name="taille_saisie" id="taille_saisie" placeholder="Ex : 170" required/><br>
+						<label for="taille">Taille :</label>
+                        <div class="mesure"><input type="number" name="taille_saisie" id="taille_saisie" placeholder="0" min="0" max="400" required/><p>cm</p></div><br>
 						
-						<label for="user_prenom">Poids :</label>
-                        <input type="text" name="poids_saisie" id="poids_saisie" placeholder="Ex : 50 kg" required/><br>
+						<label for="poids">Poids :</label>
+                        <div class="mesure"><input type="number" name="poids_saisie" id="poids_saisie" placeholder="0" min="1" max="400" required/><p>kg</p></div><br>
 						
-						<label for="user_prenom">Poste préféré :</label>
-                        <input type="text" name="poste_pref_saisie" id="poste_pref_saisie" placeholder="Ex : remplacant" /><br>
+						<label for="poste_prefere">Poste préféré :</label>
+                        <select name="poste_saisie" id="poste_saisie" required>
+                            <option value="">--Choisissez une option--</option>
+                            <option value="Attaquant">Attaquant</option>
+                            <option value="Défenseur">Défenseur</option>
+                            <option value="Aucun">Aucun</option>
+                        </select><br>
 						
-						<label for="user_prenom">Note personnel :</label>
+						<label for="note_perso">Note personnel :</label>
                         <input type="text" name="note_saisie" id="note_saisie" placeholder="Ex : il est efficace" /><br>
 						
-						<label for="user_prenom">Status :</label>
-                        <input type="text" name="status_saisie" id="statuts_saisie" placeholder="Ex : Absent" required/><br>
-					
+						<label for="statut">Status :</label>
+                        <select name="statut_saisie" id="statut_saisie" required>
+                            <option value="">--Choisissez une option--</option>
+                            <option value="Actif">Actif</option>
+                            <option value="Blessé">Blessé</option>
+                            <option value="Suspendu">Suspendu</option>
+                            <option value="Absent">Absent</option>
+                        </select><br>
 						<button type="reset">Effacer</button>
 						<button type="submit">Valider</button>
                     </div>

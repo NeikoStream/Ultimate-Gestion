@@ -268,7 +268,7 @@ a{
 .joueur{
   display: flex;
   justify-content: center;
-  width: 25%;
+  width: 20.5%;
   border: 1px solid #f1f1f1;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   text-align: center;
@@ -316,6 +316,66 @@ a{
   align-items: center;
 }
 
+/*saisie joueur*/
+
+.cache {
+  display: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+fieldset {
+  border: none;
+}
+
+legend {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 1em 0;
+  text-align: center;
+}
+
+label {
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 1em 0;
+}
+
+.mesure{
+  display:flex;
+  align-items: center;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #555;
+}
+
+button{
+  margin:10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: ##555;
+}
 
 /*Partie Statistique*/
 
@@ -400,3 +460,4 @@ th {
 #colonne,#donneeJoueur td {
     text-align: center;
 }
+
