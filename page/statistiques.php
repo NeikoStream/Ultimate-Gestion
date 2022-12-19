@@ -19,20 +19,20 @@ require '../fonctionPHP/connexionbd.php';
     $nuls = $linkpdo->prepare('SELECT COUNT(*) FROM `matchs` WHERE score_equipe = score_adverse');
     
     //partie tableau joueurs
-    $joueurs = $linkpdo->prepare('SELECT nom, prenom , poste_prefere , statut , 
+    $joueurs = $linkpdo->prepare('SELECT CONCAT(prenom," ", nom) AS affichage_nom, poste_prefere , statut , 
     count(case participer.etre_titulaire when 1 then 1 else null end) as titulaire,
     count(case participer.etre_titulaire when 0 then 1 else null end) as remplacant, 
     AVG(participer.performance) as moynotes,
-    COUNT(matchs.score_equipe>matchs.score_adverse) as win,
-    COUNT(matchs.score_equipe<matchs.score_adverse) as loose,
-    COUNT(matchs.score_equipe=matchs.score_adverse) as draw 
+    SUM(matchs.score_equipe>matchs.score_adverse) as win,
+    SUM(matchs.score_equipe<matchs.score_adverse) as loose,
+    SUM(matchs.score_equipe=matchs.score_adverse) as draw 
     FROM joueur, matchs, participer 
     WHERE matchs.datem = participer.datem 
     and matchs.heurem = participer.heurem 
     and joueur.numero_licence = participer.numero_licence 
     and participer.etre_titulaire = 1
-    group by joueur.numero_licence;');
-    
+    group by affichage_nom;');
+
     $winjoueur = $linkpdo->prepare('SELECT COUNT(*) 
     FROM joueur, matchs, participer 
     WHERE joueur.numero_licence = :numlic 
@@ -77,7 +77,7 @@ require '../fonctionPHP/connexionbd.php';
   while($result = $joueurs->fetch()): 
   ?>
             <tr>
-                <td><?php echo htmlspecialchars($result['prenom']).' '.htmlspecialchars($result['nom']);?></td>
+                <td><?php echo htmlspecialchars($result['affichage_nom']);?></td>
                 <td><?php echo htmlspecialchars($result['statut']); ?></td>
                 <td><?php echo htmlspecialchars($result['poste_prefere']); ?></td>
                 <td><?php echo htmlspecialchars($result['titulaire']); ?></td>
