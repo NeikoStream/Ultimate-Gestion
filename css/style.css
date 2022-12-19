@@ -78,11 +78,6 @@ a{
 
 /*Partie Menu*/
 
-/*Partie responsive du menu*/
-
-
-
-
 .container {
   clear: both;
   overflow: auto;
@@ -147,6 +142,8 @@ a{
 .nav-links.mobile-menu{
   margin-left : 0;
 }
+
+/*Partie responsive du menu*/
 
 @media screen and (max-width:1032px) {
   .navbar{
@@ -315,4 +312,63 @@ a{
 .ajoutJoueur{
   line-height: 20em;
   align-items: center;
+}
+
+
+/*Partie Statistique*/
+
+.winrate{
+  position: relative;  
+
+}
+
+.progress-circle{
+  position: relative;             /* pour servir de référent */
+  box-sizing: border-box;         /* prise en compte bordure dans la dimension */
+  font-size: 6em;                 /* pour définir les dimensions */
+  width: 1em;                     /* fixe la largeur */
+  height: 1em;                    /* fixe la hauteur */
+  border-radius: 50%;             /* rendu aspect circulaire */
+  border: .15em solid rgb(249, 99, 99);       /* couleur de fond de l'anneau */
+  background-color: #FFF;         /* couleur de fond de la progress bar */
+}
+
+.progress-masque {
+  position: absolute;
+  width: 1em;                     /* 100% de la largeur */
+  height: 1em;                    /* 100% de la hauteur */
+  left: -.15em;                   /* décalage de la largeur bordure de la gauge */
+  top: -.15em;                    /* décalage de la largeur bordure de la gauge */
+  clip: rect(0, 1em, 1em, .5em);  /* par défaut seule la partie droite est visible */
+}
+
+.progress-barre,
+.progress-sup50 {
+  position: absolute;
+  box-sizing: border-box;         /* prise en compte bordure dans la dimension */
+  border-width: .15em;            /* largeur bordure de la gauge */
+  border-style: solid;
+  border-color: rgb(59, 153, 0);
+  border-radius: 50%;             /* rendu aspect circulaire */
+  width: 1em;                     /* largeur à 100% */
+  height: 1em;                    /* hauteur à 100% */
+  clip: rect(0, .5em, 1em, 0);    /* on ne garde que la partie gauche */
+}
+
+.progress-sup50 {
+  display: none;
+  clip: rect(0, 1em, 1em, .5em);
+}
+
+.progress-circle:after {
+  content: attr(data-value) "%";  /* récup. valeur de progression */
+  font-size: 0.15em;              /* taille de la font en % du parent */
+  height: 100%;                   /* centrage dans le parent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*-- pour effet shadow intérieur --*/
+  border-radius: 50%;
+  box-shadow: 0 0 .5em rgba(0, 0, 0, .5) inset;
 }
