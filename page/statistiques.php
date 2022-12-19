@@ -17,11 +17,12 @@ require '../fonctionPHP/connexionbd.php';
     $victoires = $linkpdo->prepare('SELECT COUNT(*) FROM `matchs` WHERE score_equipe > score_adverse');
     $defaites = $linkpdo->prepare('SELECT COUNT(*) FROM `matchs` WHERE score_equipe < score_adverse');
     $nuls = $linkpdo->prepare('SELECT COUNT(*) FROM `matchs` WHERE score_equipe = score_adverse');
- 
+    $joueurs = $linkpdo->prepare('SELECT nom, prenom , poste_prefere , statut , count(participer.etre_titulaire = 1) as titulaire, count(participer.etre_titulaire = 0) as remplacant, AVG(participer.performance) as moynotes,COUNT(matchs.score_equipe>matchs.score_adverse) as win,COUNT(matchs.score_equipe<matchs.score_adverse) as loose,COUNT(matchs.score_equipe=matchs.score_adverse) as draw FROM joueur, matchs, participer WHERE matchs.datem = participer.datem and matchs.heurem = participer.heurem and joueur.numero_licence = participer.numero_licence');
     ///Liens enthe variables PHP et marqueurs
    $victoires->execute();
    $defaites->execute();
    $nuls->execute();
+   $joueurs->execute();
 
    ///Stockage des résultat
 
@@ -42,15 +43,29 @@ require '../fonctionPHP/connexionbd.php';
       <th>Joueurs</th>
       <th>Statut</th>
       <th>Poste préféré</th>
-      <th>Statut</th>
       <th>Total titulaire</th>
       <th>Total remplaçant</th>
       <th>moyenne des évaluations</th>
       <th>pourcentage de matchs gagnés</th>
     </tr>
   </thead>
-  <tbody>
-
+  <tbody id="donneeJoueur">
+  <?php while($result = $joueurs->fetch()): ?>
+            <tr>
+                <td><?php echo htmlspecialchars($result['prenom']).' '.htmlspecialchars($result['nom']);?></td>
+                <td><?php echo htmlspecialchars($result['statut']); ?></td>
+                <td><?php echo htmlspecialchars($result['poste_prefere']); ?></td>
+                <td><?php echo htmlspecialchars($result['titulaire']); ?></td>
+                <td><?php echo htmlspecialchars($result['remplacant']); ?></td>
+                <td><?php echo htmlspecialchars($result['moynotes']); ?></td>
+                <td>
+                <?php 
+                  $winrate = (($result['win'] + 0.5*$result['draw'])/($result['win']+$result['loose']+$result['draw']) * 100);
+                  echo htmlspecialchars($winrate); 
+                  ?>
+                </td>
+            </tr>
+            <?php endwhile; ?>
   </tbody>
 </table>
 
