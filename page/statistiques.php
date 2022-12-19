@@ -19,7 +19,20 @@ require '../fonctionPHP/connexionbd.php';
     $nuls = $linkpdo->prepare('SELECT COUNT(*) FROM `matchs` WHERE score_equipe = score_adverse');
     
     //partie tableau joueurs
-    $joueurs = $linkpdo->prepare('SELECT nom, prenom , poste_prefere , statut , count(participer.etre_titulaire = 1) as titulaire, count(participer.etre_titulaire = 0) as remplacant, AVG(participer.performance) as moynotes,COUNT(matchs.score_equipe>matchs.score_adverse) as win,COUNT(matchs.score_equipe<matchs.score_adverse) as loose,COUNT(matchs.score_equipe=matchs.score_adverse) as draw FROM joueur, matchs, participer WHERE matchs.datem = participer.datem and matchs.heurem = participer.heurem and joueur.numero_licence = participer.numero_licence');
+    $joueurs = $linkpdo->prepare('SELECT nom, prenom , poste_prefere , statut , 
+    count(case participer.etre_titulaire when 1 then 1 else null end) as titulaire,
+    count(case participer.etre_titulaire when 0 then 1 else null end) as remplacant, 
+    AVG(participer.performance) as moynotes,
+    COUNT(matchs.score_equipe>matchs.score_adverse) as win,
+    COUNT(matchs.score_equipe<matchs.score_adverse) as loose,
+    COUNT(matchs.score_equipe=matchs.score_adverse) as draw 
+    FROM joueur, matchs, participer 
+    WHERE matchs.datem = participer.datem 
+    and matchs.heurem = participer.heurem 
+    and joueur.numero_licence = participer.numero_licence 
+    and participer.etre_titulaire = 1
+    group by joueur.numero_licence;');
+    
     $winjoueur = $linkpdo->prepare('SELECT COUNT(*) 
     FROM joueur, matchs, participer 
     WHERE joueur.numero_licence = :numlic 
@@ -32,7 +45,7 @@ require '../fonctionPHP/connexionbd.php';
    $defaites->execute();
    $nuls->execute();
    $joueurs->execute();
-   
+  
 
    ///Stockage des résultat
 
@@ -61,8 +74,6 @@ require '../fonctionPHP/connexionbd.php';
   </thead>
   <tbody id="donneeJoueur">
   <?php 
-  
-  
   while($result = $joueurs->fetch()): 
   ?>
             <tr>
