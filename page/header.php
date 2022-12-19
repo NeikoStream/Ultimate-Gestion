@@ -39,7 +39,7 @@
         <li><a href="joueurs.php">
             Joueurs
           </a></li>
-        <li><a href="">
+        <li><a href="statistiques.php">
             Statistiques
           </a></li>
         <li id="logout"><a href="../fonctionPHP/logout.php">
