@@ -39,7 +39,7 @@
         <li><a href="joueurs.php">
             Joueurs
           </a></li>
-        <li><a href="">
+        <li><a href="statistiques.php">
             Statistiques
           </a></li>
         <li id="logout"><a href="../fonctionPHP/logout.php">
@@ -50,11 +50,4 @@
       <img src="../img/menu-btn" alt="Menu hamburger" id="menuHamb">
     </nav>
   </header>
-  <script>
-        const menuHamburger = document.querySelector("#menuHamb")
-        const navLinks = document.querySelector(".nav-links")
- 
-        menuHamburger.addEventListener('click',()=>{
-        navLinks.classList.toggle('mobile-menu')
-        })
-</script>
+  <script src="../js/hamb.js"></script>
