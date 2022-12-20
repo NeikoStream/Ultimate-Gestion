@@ -122,7 +122,7 @@ a{
 }
 
 .navbar ul li a:hover {
-  color: orange;
+  color: #a0bf53;
 }
 
 .navbar #logout a{
@@ -130,7 +130,7 @@ a{
 }
 
 .navbar #logout a:hover {
-  color: orange;
+  color: #a0bf53;
 }
 .navbar #menuHamb{
   position: absolute;
@@ -323,25 +323,25 @@ a{
   display: none;
 }
 
-form {
+.saisieJoueur form{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  /*width: 100%;*/
 }
 
-fieldset {
+.saisieJoueur fieldset {
   border: none;
 }
 
-legend {
+.saisieJoueur legend {
   font-size: 1.5em;
   font-weight: bold;
   margin: 1em 0;
   text-align: center;
 }
 
-label {
+.saisieJoueur  label {
   display: block;
   font-size: 1.2em;
   font-weight: bold;
@@ -353,8 +353,8 @@ label {
   align-items: center;
 }
 
-input,
-select {
+.saisieJoueur input,
+.saisieJoueur select {
   width: 100%;
   padding: 0.5em;
   font-size: 1em;
@@ -362,20 +362,25 @@ select {
   border-radius: 5px;
 }
 
-input:focus,
-select:focus {
+.saisieJoueur input:focus,
+.saisieJoueur select:focus {
   outline: none;
   border-color: #555;
 }
 
-button{
+.saisieJoueur button{
   margin:10px;
   font-size: 1.2em;
   font-weight: bold;
   padding: 0.5em 1em;
   border: none;
   border-radius: 5px;
-  background-color: #555;
+  background-color: #a0bf53;
+  color: #fff;;
+}
+
+.saisieJoueur button:hover{
+  background-color: #8ca749;
 }
 
 /*Partie Statistique*/
@@ -397,9 +402,6 @@ button{
 .winrate p{
   margin-top: 5%;
 }
-
-
-
 
 .progress-circle{
   margin: 0 auto;

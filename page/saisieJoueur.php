@@ -9,12 +9,12 @@ require 'header.php'; ?>
 
 <!--Partie HTML --> 
 <html>
-		<section>
+		<section class=saisieJoueur>
             <h2 class="cache">Formulaire d'inscription d'un joueur</h2>
             <form action="../fonctionPHP/ajoutJoueur.php" method="post">
                 <fieldset>
                     <legend>Inscription d'un joueur</legend>
-                    <div class="infos">
+                    <div>
                         <label for="nom">Nom :</label>
                         <input type="text" name="nom_saisie" id="nom_saisie" placeholder="Ex : Dubois" autofocus required/><br>
         
