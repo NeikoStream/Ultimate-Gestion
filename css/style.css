@@ -83,6 +83,7 @@ a{
   overflow: auto;
   background-color: rgb(239, 239, 239);
   width: 100vw;
+  top:0;
   left: 0;
 }
 
@@ -374,13 +375,34 @@ button{
   padding: 0.5em 1em;
   border: none;
   border-radius: 5px;
-  background-color: ##555;
+  background-color: #555;
 }
 
 /*Partie Statistique*/
+.winrate {
+  display: block;
+  justify-content: center;
+  text-align: center;
+  width: 400px;
+  margin: 2% auto;
+  padding: 30px;
+  border: 1px solid #f1f1f1;
+  background: #fff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  
+}
+.winrate h1{
+  margin-bottom: 5%;
+}
+.winrate p{
+  margin-top: 5%;
+}
+
+
 
 
 .progress-circle{
+  margin: 0 auto;
   position: relative;             /* pour servir de référent */
   box-sizing: border-box;         /* prise en compte bordure dans la dimension */
   font-size: 6em;                 /* pour définir les dimensions */
@@ -448,7 +470,7 @@ button{
     letter-spacing: 1px;
     font-family: sans-serif;
     font-size: 1em;
-    width: 100vw;
+    width: 100%;
 }
 
 #colonne,#donneeJoueur td,
