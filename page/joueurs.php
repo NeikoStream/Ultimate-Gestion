@@ -19,6 +19,7 @@ $query->execute();
 ?>
     <h2 class="titre_joueurs">Liste des joueurs</h2>
     <li class="listejoueurs">
+            <a class="joueur" href="saisieJoueur.php"><ul class="ajoutJoueur">Ajouter un joueur</ul></a>
         <?php while($row = $query->fetch()): ?>
             <a class="joueur" href="modifierJoueur.php">
                 <ul>
@@ -38,7 +39,6 @@ $query->execute();
                 </ul>
             </a>
         <?php endwhile; ?>
-        <ul class="ajoutJoueur joueur"><a href="saisieJoueur.php">Ajouter un joueur</a></ul>
     </li>
 </body>
 </html>

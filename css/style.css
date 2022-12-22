@@ -383,6 +383,18 @@ a{
   background-color: #8ca749;
 }
 
+/*Page Matchs*/
+
+.ajoutMatch{
+  line-height: 5em;
+  align-items: center;
+}
+
+.prepare{
+  color:red;
+  font-weight:bold;
+}
+
 /*Partie Statistique*/
 .winrate {
   display: block;
