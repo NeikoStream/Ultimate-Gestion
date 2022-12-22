@@ -85,7 +85,7 @@ $nbMatchs = $victoires[0] + $defaites[0] + $nuls[0]
         <?php
       $winrate = (($result['win'] + 0.5 * $result['draw']) / ($result['win'] + $result['loose'] + $result['draw']) * 100);
       echo htmlspecialchars($winrate);
-        ?>
+        ?>%
       </td>
     </tr>
     <?php endwhile; ?>
