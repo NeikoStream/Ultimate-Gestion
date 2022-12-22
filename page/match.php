@@ -86,6 +86,7 @@ require '../fonctionPHP/connexionbd.php';
                             <ul>
                                 <p><?php echo htmlspecialchars($result1['prenom']); ?>
                                 <?php echo htmlspecialchars($result1['nom']); ?></p>
+                                <!--N'AFFICHE RIEN POUR LE MOMENT, mais dois afficher la liste des joueurs titulaires-->
                             </ul>
                         <?php endwhile; ?>
                     </li>
