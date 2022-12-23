@@ -24,7 +24,7 @@ $recupAnneeSaison->execute();
 
 
 //recuperer les matchs l'année de la saison choisit
-$matchsaison = $linkpdo->prepare("SELECT * from matchs where score_equipe is NOT null and score_adverse is not null;");
+$matchsaison = $linkpdo->prepare('SELECT score_equipe,score_adverse,nom_equipe_adverse,DATE_FORMAT(datem, "%d/%m/%Y") datem from matchs where score_equipe is NOT null and score_adverse is not null;');
 $matchsaison->execute();
 
 
@@ -43,18 +43,15 @@ $matchsaison->execute();
             <img class="LogoEquipe" src="../img/Equipe/TFC_LOGO.png" alt="">
             
         </div>
-        <div class="score">
+        <h1>Toulouse Ultimate Club</h1>
             <h1><?php echo htmlspecialchars($match['score_equipe']) ?></h1>
-        </div>
 
         <div class="SeparationScore">
             <button>Voir en détail</button>
             <h2 id="datematch"><?php echo htmlspecialchars($match['datem']) ?></h2>
         </div>
-        <div class="score">
             <h1><?php echo htmlspecialchars($match['score_adverse']) ?></h1>
-        </div>
-
+        <h1><?php echo htmlspecialchars($match['nom_equipe_adverse']) ?></h1>
         
         <div class="Equipe2">
             <img class="LogoEquipe" src="../img/Equipe/TFC_LOGO.png" alt="">
