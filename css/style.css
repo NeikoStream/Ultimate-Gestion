@@ -397,6 +397,15 @@ a{
   font-weight:bold;
 }
 
+.checkbox {
+  margin : 25px;
+  display: flex;
+}
+
+.checkbox p {
+  white-space:nowrap;
+}
+
 /*Partie Statistique*/
 .winrate {
   display: block;
