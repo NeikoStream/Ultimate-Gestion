@@ -8,8 +8,7 @@ $title = "Joueurs";
 require 'header.php'; 
 
 // METHODE avec PDO
-// récupérer tous les matchs
-
+// récupérer tous les joueurs
 require '../fonctionPHP/connexionbd.php';
 ///Préparation de la requête sans les variables (marqueurs : nominatifs)
 $query= $linkpdo->prepare('SELECT * FROM joueur');

@@ -228,13 +228,6 @@ a{
   justify-content: space-between;
   margin-bottom: 2%;
 }
-.Equipe1 {
-  flex-direction: row;
-}
-
-.Equipe2 {
-  vertical-align: middle;
-}
 
 .score {
   margin-top: 2em;
@@ -242,6 +235,13 @@ a{
 
 .SeparationScore {
   margin-top: 30px;
+  text-align: center;
+
+  
+}
+.SeparationScore button{
+ 
+  margin: 0 auto;
 }
 
 .LogoEquipe {
