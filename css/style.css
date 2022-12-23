@@ -225,31 +225,33 @@ a{
   padding: 2%;
   flex-direction: row;
   vertical-align: center;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 2%;
 }
-.Equipe1 {
-  flex-direction: row;
+
+.match h1{
+  width: 20%;
+  text-align: center;
+
 }
 
-.Equipe2 {
-  vertical-align: middle;
-}
-
-.score {
-  margin-top: 2em;
-}
 
 .SeparationScore {
-  margin-top: 30px;
+  margin: auto;
+  text-align: center;
+
+  
 }
 
 .LogoEquipe {
+  margin: auto;
   width: 80px;
   height: 80px;
 }
 
 .LogoEquipe {
+  margin: auto;
   width: 90px;
   height: 90px;
 }
