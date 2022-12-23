@@ -24,7 +24,7 @@ require '../fonctionPHP/connexionbd.php';
                                 FROM matchs 
                                 WHERE DATE_FORMAT(datem,"%Y-%m-%d") >= DATE_FORMAT(now(),"%Y-%m-%d")
                                 AND DATE_FORMAT(heurem,"%H:%i") >= DATE_FORMAT(datem,"%H:%i")
-                                order by etre_prepare,DATE_FORMAT(datem,"%Y-%m-%d"),heurem');
+                                order by DATE_FORMAT(datem,"%Y-%m-%d"),heurem');
     ///Liens entre variables PHP et marqueurs
    $requete1->execute();
 
