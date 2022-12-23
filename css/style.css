@@ -150,6 +150,7 @@ a{
 @media screen and (max-width:1032px) {
   .navbar{
     padding: 0;
+    width: 100vw;
   }
   .nav-links{
     top:0;
@@ -179,7 +180,7 @@ a{
   }
 
   .logo{
-    padding: 50px;
+    padding: 20px;
   }
 
   .Texte-Logo{
@@ -221,10 +222,8 @@ a{
 .match {
   display: flex;
   background-color: rgb(239, 239, 239);
-  width: 95%;
   padding: 2%;
   flex-direction: row;
-  vertical-align: center;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 2%;
@@ -244,11 +243,7 @@ a{
   
 }
 
-.LogoEquipe {
-  margin: auto;
-  width: 80px;
-  height: 80px;
-}
+
 
 .LogoEquipe {
   margin: auto;
