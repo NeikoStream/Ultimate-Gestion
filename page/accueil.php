@@ -24,7 +24,7 @@ $recupAnneeSaison->execute();
 
 
 //recuperer les matchs l'année de la saison choisit
-$matchsaison = $linkpdo->prepare('SELECT score_equipe,score_adverse,nom_equipe_adverse,DATE_FORMAT(datem, "%d/%m/%Y") datem from matchs where score_equipe is NOT null and score_adverse is not null;');
+$matchsaison = $linkpdo->prepare('SELECT score_equipe,score_adverse,nom_equipe_adverse,DATE_FORMAT(datem, "%d/%m/%Y") datem, datem as datetrie from matchs where score_equipe is NOT null and score_adverse is not null ORDER BY datetrie DESC;');
 $matchsaison->execute();
 
 
