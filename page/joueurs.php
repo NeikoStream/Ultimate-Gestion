@@ -11,7 +11,7 @@ require 'header.php';
 // récupérer tous les joueurs
 require '../fonctionPHP/connexionbd.php';
 ///Préparation de la requête sans les variables (marqueurs : nominatifs)
-$query= $linkpdo->prepare('SELECT * FROM joueur');
+$query= $linkpdo->prepare('SELECT *,DATE_FORMAT(date_naissance, "%d/%m/%Y") datej FROM joueur');
  ///Liens entre variables PHP et marqueurs
 $query->execute();
 
@@ -30,7 +30,7 @@ $query->execute();
                     <p class="info_joueurs">Poste préféré : <?php echo htmlspecialchars($row['poste_prefere']); ?></p>
                     <p class="info_joueurs">Taille : <?php echo htmlspecialchars($row['taille']); ?> cm</p>
                     <p class="info_joueurs">Poids : <?php echo htmlspecialchars($row['poids']); ?> kg</p>
-                    <p class="info_joueurs">Date de naissance : <?php echo htmlspecialchars($row['date_naissance']); ?></p>
+                    <p class="info_joueurs">Date de naissance : <?php echo htmlspecialchars($row['datej']); ?></p>
                     <p class="info_joueurs">Commentaire</p>
                     <div class="note"><p><?php echo htmlspecialchars($row['note_perso']); ?></p></div>
                     <br/>

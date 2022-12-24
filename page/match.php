@@ -40,7 +40,7 @@ require '../fonctionPHP/connexionbd.php';
 
     $requete2->execute();
     
-    echo "Date du jour : ", strftime("%d/%m/%Y");
+    /*echo "Date du jour : ", strftime("%d/%m/%Y");*/
 ?>
     <h2 class="titre_joueurs">Liste des matchs à venir</h2>
         <li class="listejoueurs">
@@ -53,7 +53,6 @@ require '../fonctionPHP/connexionbd.php';
                         <h3>Le <?php echo htmlspecialchars($result['datem']); ?> à <?php echo htmlspecialchars($result['heurem'])?></h3>
                         <p class="statut_joueur"><?php if(htmlspecialchars($result['etre_domicile'])==1)echo "A domicile";else echo"</br>";?></p>
                         <p>Adversaires : <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?></p>
-                        <p class="prepare"><?php if(htmlspecialchars($result['etre_prepare'])==0)echo "A PREPARER";?></p>
                         <?php if(htmlspecialchars($result['etre_prepare'])==1) {?>
                             <h4>Joueurs Titulaire :</h4>
                             <?php
@@ -73,11 +72,13 @@ require '../fonctionPHP/connexionbd.php';
                                     <ul>
                                         <p><?php echo htmlspecialchars($result1['prenom']); ?>
                                         <?php echo htmlspecialchars($result1['nom']); ?></p>
-                                        <!--N'AFFICHE RIEN POUR LE MOMENT, mais dois afficher la liste des joueurs titulaires-->
                                     </ul>
                                 <?php endwhile; ?>
                             </li>
-                        <?php } ?>
+                        <?php }else{ ?>
+                            </br>
+                            <p class="prepare">A PREPARER</p>
+                        <?php }?>
                     </ul>
                 </a>
             <?php endwhile; ?>
@@ -112,7 +113,6 @@ require '../fonctionPHP/connexionbd.php';
                             <ul>
                                 <p><?php echo htmlspecialchars($result1['prenom']); ?>
                                 <?php echo htmlspecialchars($result1['nom']); ?></p>
-                                <!--N'AFFICHE RIEN POUR LE MOMENT, mais dois afficher la liste des joueurs titulaires-->
                             </ul>
                         <?php endwhile; ?>
                     </li>
