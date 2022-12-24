@@ -22,7 +22,7 @@ require 'header.php'; ?>
                         <input type="time" name="heurem_saisie" id="heurem_saisie" placeholder="Ex : 14:30" required/><br>
 
                         <label for="nom_equipe_adverse">Nom de l'équipe adverse :</label>
-                        <input type="text" name="nom_equipe_adverse_saisie" id="nom_equipe_adverse_saisie" placeholder="Ex : Les frisbees" required/><br>
+                        <input type="text" name="nom_equipe_adverse_saisie" id="nom_equipe_adverse_saisie" placeholder="Ex : Les frisbees" maxlength="100" required/><br>
 
                         <div class="checkbox"><input type="checkbox" name="etre_domicile_saisie" id="etre_domicile_saisie"/> <p>Se déroule à domicile</p> <br></div>
                         
