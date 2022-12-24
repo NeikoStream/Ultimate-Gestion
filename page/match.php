@@ -72,14 +72,16 @@ require '../fonctionPHP/connexionbd.php';
                     <p>Score : <?php echo htmlspecialchars($result['score_equipe']); ?>-<?php echo htmlspecialchars($result['score_adverse']); ?></p>
                     <h4>Joueurs Titulaire :</h4>
                     <?php
+                        $vardate=htmlspecialchars($result['datem']);
+                        $varheure=htmlspecialchars($result['heurem']);
                         $requete3 = $linkpdo->prepare('SELECT j.nom nom,j.prenom prenom
                                                     from joueur j, participer p
                                                     where j.numero_licence=p.numero_licence
                                                     and p.etre_titulaire=1
-                                                    and p.datem=DATE_FORMAT("'.$result['datem'].'","%Y-%m-%d")
-                                                    and p.heurem=DATE_FORMAT("'.$result['heurem'].'","%H:%i")');
+                                                    and DATE_FORMAT(p.datem, "%d/%m/%Y")=:vardate
+                                                    and DATE_FORMAT(p.heurem,"%H:%i")=:varheure');
 
-                        $requete3->execute();
+                        $requete3->execute(array(":vardate" => $vardate, ":varheure" => $varheure));
                     ?>
                     <li>
                         <?php while($result1 = $requete3->fetch()): ?>
