@@ -25,16 +25,16 @@ require 'header.php'; ?>
                         <input type="file" name="photo_saisie" id="photo_saisie" accept="image/png, image/jpeg"/><br>
 						
 						<label for="numero_licence">Numéro de licence :</label>
-                        <input type="text" name="num_licence_saisie" id="num_licence_saisie" placeholder="Ex : 1234567890" required/><br>
+                        <input type="text" name="num_licence_saisie" id="num_licence_saisie" placeholder="Ex : 123456789" maxlength="9" required/><br>
 						
 						<label for="date_naissance">Date de naissance :</label>
                         <input type="date" name="date_naissance_saisie" id="date_naissance_saisie" placeholder="Ex : 21/02/1999" required/><br>
 						
 						<label for="taille">Taille :</label>
-                        <div class="mesure"><input type="number" name="taille_saisie" id="taille_saisie" placeholder="0" min="0" max="400" required/><p>cm</p></div><br>
+                        <div class="mesure"><input type="number" name="taille_saisie" id="taille_saisie" placeholder="0" min="1" max="400" maxlength="3" required/><p>cm</p></div><br>
 						
 						<label for="poids">Poids :</label>
-                        <div class="mesure"><input type="number" name="poids_saisie" id="poids_saisie" placeholder="0" min="1" max="400" required/><p>kg</p></div><br>
+                        <div class="mesure"><input type="number" name="poids_saisie" id="poids_saisie" placeholder="0" min="1" max="400" maxlength="3" required/><p>kg</p></div><br>
 						
 						<label for="poste_prefere">Poste préféré :</label>
                         <select name="poste_saisie" id="poste_saisie" required>
@@ -45,7 +45,7 @@ require 'header.php'; ?>
                         </select><br>
 						
 						<label for="note_perso">Note personnel :</label>
-                        <input type="text" name="note_saisie" id="note_saisie" placeholder="Ex : il est efficace" /><br>
+                        <input type="text" name="note_saisie" id="note_saisie" placeholder="Ex : il est efficace" maxlength="150"/><br>
 						
 						<label for="statut">Status :</label>
                         <select name="statut_saisie" id="statut_saisie" required>
