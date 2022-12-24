@@ -54,6 +54,30 @@ require '../fonctionPHP/connexionbd.php';
                         <p class="statut_joueur"><?php if(htmlspecialchars($result['etre_domicile'])==1)echo "A domicile";else echo"</br>";?></p>
                         <p>Adversaires : <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?></p>
                         <p class="prepare"><?php if(htmlspecialchars($result['etre_prepare'])==0)echo "A PREPARER";?></p>
+                        <?php if(htmlspecialchars($result['etre_prepare'])==1) {?>
+                            <h4>Joueurs Titulaire :</h4>
+                            <?php
+                                $vardate=htmlspecialchars($result['datem']);
+                                $varheure=htmlspecialchars($result['heurem']);
+                                $requete3 = $linkpdo->prepare('SELECT j.nom nom,j.prenom prenom
+                                                            from joueur j, participer p
+                                                            where j.numero_licence=p.numero_licence
+                                                            and p.etre_titulaire=1
+                                                            and DATE_FORMAT(p.datem, "%d/%m/%Y")=:vardate
+                                                            and DATE_FORMAT(p.heurem,"%H:%i")=:varheure');
+
+                                $requete3->execute(array(":vardate" => $vardate, ":varheure" => $varheure));
+                            ?>
+                            <li>
+                                <?php while($result1 = $requete3->fetch()): ?>
+                                    <ul>
+                                        <p><?php echo htmlspecialchars($result1['prenom']); ?>
+                                        <?php echo htmlspecialchars($result1['nom']); ?></p>
+                                        <!--N'AFFICHE RIEN POUR LE MOMENT, mais dois afficher la liste des joueurs titulaires-->
+                                    </ul>
+                                <?php endwhile; ?>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </a>
             <?php endwhile; ?>
