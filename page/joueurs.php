@@ -22,7 +22,7 @@ $query->execute();
         <?php while($row = $query->fetch()): ?>
             <a class="joueur" href="modifierJoueur.php">
                 <ul>
-                    <img class="photo_joueur" src=<?php echo htmlspecialchars($row['photo']); ?> alt="photo de <?php echo htmlspecialchars($row['prenom']); ?>
+                    <img class="photo_joueur" src="../img/<?php echo $row['photo']; ?>" alt="photo de <?php echo htmlspecialchars($row['prenom']); ?>
                     <?php echo htmlspecialchars($row['nom']); ?>" width="100">
                     <h3><?php echo htmlspecialchars($row['prenom']); ?> <?php echo htmlspecialchars($row['nom']); ?></h3>
                     <p class="statut_joueur"><?php echo htmlspecialchars($row['statut']); ?></p>
