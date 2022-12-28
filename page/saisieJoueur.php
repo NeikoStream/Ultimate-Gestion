@@ -5,13 +5,15 @@ require '../fonctionPHP/authentification.php';
 forcer_utilisateur_connecte();
 //Appel du header
 $title = "Saisie Joueur";
-require 'header.php'; ?>
+require 'header.php'; 
+//appel a la method de post d'image
+require '../fonctionPHP/postImage.php';?>
 
 <!--Partie HTML --> 
 <html>
 		<section class=saisieJoueur>
             <h2 class="cache">Formulaire d'inscription d'un joueur</h2>
-            <form action="../fonctionPHP/ajoutJoueur.php" method="post">
+            <form action="../fonctionPHP/ajoutJoueur.php" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Inscription d'un joueur</legend>
                     <div>
