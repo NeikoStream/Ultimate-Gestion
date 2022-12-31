@@ -7,7 +7,7 @@ forcer_utilisateur_connecte();
 $title = "Saisie Joueur";
 require 'header.php'; 
 //appel a la method de post d'image
-require '../fonctionPHP/postImage.php';?>
+?>
 
 <!--Partie HTML --> 
 <html>
