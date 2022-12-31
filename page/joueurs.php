@@ -19,8 +19,11 @@ $query->execute();
     <h2 class="titre_joueurs">Liste des joueurs</h2>
     <li class="listejoueurs">
             <a class="joueur" href="saisieJoueur.php"><ul class="ajoutJoueur">Ajouter un joueur</ul></a>
-        <?php while($row = $query->fetch()): ?>
-            <a class="joueur" href="modifierJoueur.php">
+        <?php while ($row = $query->fetch()):
+            $numlic = $row['numero_licence'];
+            ?>
+
+            <a class="joueur" href="<?php echo "modifierJoueur.php?var1=".$numlic?>">
                 <ul>
                     <img class="photo_joueur" src="../img/<?php echo $row['photo']; ?>" alt="photo de <?php echo htmlspecialchars($row['prenom']); ?>
                     <?php echo htmlspecialchars($row['nom']); ?>" width="100">
