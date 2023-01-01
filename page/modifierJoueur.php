@@ -5,8 +5,8 @@ forcer_utilisateur_connecte();
 //Appel du header
 $title = "Saisie Joueur";
 require 'header.php'; 
-//appel a la method de post d'image
-$numlic = htmlspecialchars($_GET["var1"]);
+//appel a la method de recuperation du parmettre dans l'url
+$numlic = htmlspecialchars($_GET["lic"]);
 
 // METHODE avec PDO
 // récupérer le joueur via son numero de licence
@@ -24,7 +24,7 @@ $joueurs = $query->fetch()
             <h2 class="cache">Formulaire d'inscription d'un joueur</h2>
             <form action="../fonctionPHP/editJoueur.php" method="post" enctype="multipart/form-data">
                 <fieldset>
-                    <legend>Inscription d'un joueur</legend>
+                    <legend>Modifier un joueur</legend>
                     <div>
                         <label for="nom">Nom :</label>
                         <input type="text" name="nom_saisie" id="nom_saisie" placeholder="Ex : Dubois" value="<?php echo $joueurs["nom"]?>" autofocus required/><br>
@@ -67,7 +67,8 @@ $joueurs = $query->fetch()
                             <option value="Absent">Absent</option>
                         </select><br>
 						<button type="submit">Modifier</button>
-						<button type="submit">Supprimer</button>
+                        <a href="<?php echo "../fonctionPHP/deleteJoueur.php?lic=".$numlic?>">Supprimer</a>
+						<!-- <button type="submit">Supprimer</button>-->
                     </div>
                 </fieldset>
             </form>
