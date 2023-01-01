@@ -36,6 +36,9 @@
         <li><a href="match.php">
             Matchs
           </a></li>
+        <li><a href="adversaires.php">
+            Adversaires
+        </a></li>
         <li><a href="joueurs.php">
             Joueurs
           </a></li>
