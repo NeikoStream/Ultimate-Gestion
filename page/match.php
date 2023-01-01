@@ -21,8 +21,9 @@ require '../fonctionPHP/connexionbd.php';
                                 nom_equipe_adverse,
                                 etre_domicile,
                                 etre_prepare
-                                FROM matchs 
-                                WHERE DATE_FORMAT(datem,"%Y-%m-%d") >= DATE_FORMAT(now(),"%Y-%m-%d")
+                                FROM matchs, adversaire 
+                                WHERE matchs.id_adversaire = adversaire.id_adversaire AND
+                                DATE_FORMAT(datem,"%Y-%m-%d") >= DATE_FORMAT(now(),"%Y-%m-%d")
                                 AND DATE_FORMAT(heurem,"%H:%i") >= DATE_FORMAT(datem,"%H:%i")
                                 order by DATE_FORMAT(datem,"%Y-%m-%d"),heurem');
     ///Liens entre variables PHP et marqueurs
@@ -34,8 +35,9 @@ require '../fonctionPHP/connexionbd.php';
                                 etre_domicile,
                                 score_equipe,
                                 score_adverse
-                                FROM matchs 
-                                WHERE DATE_FORMAT(datem,"%Y-%m-%d") < DATE_FORMAT(now(),"%Y-%m-%d")
+                                FROM matchs, adversaire
+                                WHERE matchs.id_adversaire = adversaire.id_adversaire AND
+                                DATE_FORMAT(datem,"%Y-%m-%d") < DATE_FORMAT(now(),"%Y-%m-%d")
                                 order by DATE_FORMAT(datem,"%Y-%m-%d")desc,heurem desc');
 
     $requete2->execute();

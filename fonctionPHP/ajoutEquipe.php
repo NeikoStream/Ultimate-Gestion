@@ -3,11 +3,11 @@
 
 	$nom = $_POST['nom_equipe_adverse_saisie'];
 
-	$req = $linkpdo->prepare('INSERT INTO adversaire (nom) VALUES (:nom)');
+	$req = $linkpdo->prepare('INSERT INTO adversaire (nom_equipe_adverse) VALUES (:nom)');
 	//ajout de l'equipe sans l'image
 	$req->execute(array('nom' => $nom));
 
-    $recupid = $linkpdo->prepare('SELECT * FROM adversaire WHERE nom = :nom');
+    $recupid = $linkpdo->prepare('SELECT * FROM adversaire WHERE nom_equipe_adverse = :nom');
     $recupid->execute(array('nom' => $nom));
     $idequipe = $recupid->fetch();
 

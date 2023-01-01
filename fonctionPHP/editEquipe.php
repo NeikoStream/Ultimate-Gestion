@@ -4,7 +4,7 @@
 	
     $nom = $_POST['nom_equipe_adverse_saisie'];
 
-	$req = $linkpdo->prepare('UPDATE adversaire SET nom = :nom ,  img = :photo WHERE id_adversaire = :id_adversaire');
+	$req = $linkpdo->prepare('UPDATE adversaire SET nom_equipe_adverse = :nom ,  img = :photo WHERE id_adversaire = :id_adversaire');
 	
 
     $recupimg = $linkpdo->prepare('SELECT img FROM adversaire WHERE id_adversaire = :id_adversaire');
@@ -39,8 +39,6 @@
 	}else {
         $photo = $img['img'];
     }
-
-    echo $nom." ".$photo." ".$idequipe;
 
 	$req->execute(array('nom' => $nom, 'photo' => $photo, 'id_adversaire' => $idequipe));
 	

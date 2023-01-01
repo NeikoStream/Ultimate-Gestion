@@ -25,8 +25,8 @@ $query->execute();
 
             <a class="joueur" href="<?php echo "modifierEquipe.php?idequipe=".$idequipe?>">
                 <ul>
-                    <img class="photo_joueur" src="../img/<?php echo $row['img']; ?>" alt="photo de <?php echo htmlspecialchars($row['nom']); ?>" width="100">
-                    <h3><?php echo htmlspecialchars($row['nom']); ?></h3>
+                    <img class="photo_joueur" src="../img/<?php echo $row['img']; ?>" alt="photo de <?php echo htmlspecialchars($row['nom_equipe_adverse']); ?>" width="100">
+                    <h3><?php echo htmlspecialchars($row['nom_equipe_adverse']); ?></h3>
                 </ul>
             </a>
         <?php endwhile; ?>
