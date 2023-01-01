@@ -4,7 +4,7 @@
 require '../fonctionPHP/authentification.php';
 forcer_utilisateur_connecte();
 //Appel du header
-$title = "Saisie Match";
+$title = "modifier Match";
 require 'header.php'; 
 $heurem = htmlspecialchars($_GET["heurem"]);
 $datem = htmlspecialchars($_GET["datem"]);
@@ -23,10 +23,10 @@ $equipeAdverse = $idEquipe->fetch();
 <!--Partie HTML --> 
 <html>
 		<section class=saisieJoueur>
-            <h2 class="cache">Formulaire d'ajout d'un match</h2>
-            <form action="../fonctionPHP/ajoutMatch.php" method="post">
+            <h2 class="cache">Formulaire de modification d'un match</h2>
+            <form action="<?php echo "../fonctionPHP/editMatch.php?datem=".$datem."&heurem=".$heurem?>" method="post">
                 <fieldset>
-                    <legend>Ajout d'un match</legend>
+                    <legend>Modification d'un match</legend>
                     <div>
                         <label for="datem">Date du match :</label>
                         <input type="date" name="datem_saisie" id="datem_saisie" placeholder="Ex : 21/02/1999" value="<?php echo $datem?>" required/><br>
@@ -53,8 +53,8 @@ $equipeAdverse = $idEquipe->fetch();
 
                         </div>  
                         
-						<button type="reset">Effacer</button>
-						<button type="submit">Valider</button>
+						<button type="submit">Modifier</button>
+                        <a href="<?php echo "../fonctionPHP/deleteMatch.php?datem=".$datem."&heurem=".$heurem?>">Supprimer</a>
                     </div>
                 </fieldset>
             </form>
