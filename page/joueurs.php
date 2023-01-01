@@ -23,7 +23,7 @@ $query->execute();
             $numlic = $row['numero_licence'];
             ?>
 
-            <a class="joueur" href="<?php echo "modifierJoueur.php?var1=".$numlic?>">
+            <a class="joueur" href="<?php echo "modifierJoueur.php?lic=".$numlic?>">
                 <ul>
                     <img class="photo_joueur" src="../img/<?php echo $row['photo']; ?>" alt="photo de <?php echo htmlspecialchars($row['prenom']); ?>
                     <?php echo htmlspecialchars($row['nom']); ?>" width="100">

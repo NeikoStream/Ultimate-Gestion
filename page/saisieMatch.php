@@ -5,7 +5,16 @@ require '../fonctionPHP/authentification.php';
 forcer_utilisateur_connecte();
 //Appel du header
 $title = "Saisie Match";
-require 'header.php'; ?>
+require 'header.php'; 
+
+
+// connexionBD
+require '../fonctionPHP/connexionbd.php';
+//recuperer les equipes déjà rencontrer
+$adversaire = $linkpdo->prepare('SELECT * from adversaire');
+$adversaire->execute();
+
+?>
 
 <!--Partie HTML --> 
 <html>
@@ -21,10 +30,29 @@ require 'header.php'; ?>
                         <label for="heurem">Heure du match :</label>
                         <input type="time" name="heurem_saisie" id="heurem_saisie" placeholder="Ex : 14:30" required/><br>
 
+                        
                         <label for="nom_equipe_adverse">Nom de l'équipe adverse :</label>
+
+                        <!--chexbox equipe deja rencontrer
+                        <div class="checkbox">
+                            <input type="checkbox" name="rencontrer" id="rencontrer"><p>Equipe déjà rencontrer</p> <br>
+                        </div>
+                        -->
+
+
                         <input type="text" name="nom_equipe_adverse_saisie" id="nom_equipe_adverse_saisie" placeholder="Ex : Les frisbees" maxlength="100" required/><br>
 
-                        <div class="checkbox"><input type="checkbox" name="etre_domicile_saisie" id="etre_domicile_saisie"/> <p>Se déroule à domicile</p> <br></div>
+                          
+                        <!--Combo box choix equipe
+                        <select name="equipe" id="choix_equipe" required>
+                        <?php while ($equipe = $adversaire->fetch()): ?>
+                            <option value="<?php echo htmlspecialchars($equipe['nom']) ?>"><?php echo htmlspecialchars($equipe['nom']) ?></option>
+                            <?php endwhile; ?>
+                        </select>
+                        -->
+                        <div class="checkbox">
+                            <input type="checkbox" name="etre_domicile_saisie" id="etre_domicile_saisie"/><p>Se déroule à domicile</p> <br>
+                        </div>  
                         
 						<button type="reset">Effacer</button>
 						<button type="submit">Valider</button>
