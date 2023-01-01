@@ -33,23 +33,14 @@ $adversaire->execute();
                         
                         <label for="nom_equipe_adverse">Nom de l'équipe adverse :</label>
 
-                        <!--chexbox equipe deja rencontrer
-                        <div class="checkbox">
-                            <input type="checkbox" name="rencontrer" id="rencontrer"><p>Equipe déjà rencontrer</p> <br>
-                        </div>
-                        -->
-
-
-                        <input type="text" name="nom_equipe_adverse_saisie" id="nom_equipe_adverse_saisie" placeholder="Ex : Les frisbees" maxlength="100" required/><br>
-
                           
-                        <!--Combo box choix equipe
+                        
                         <select name="equipe" id="choix_equipe" required>
                         <?php while ($equipe = $adversaire->fetch()): ?>
-                            <option value="<?php echo htmlspecialchars($equipe['nom']) ?>"><?php echo htmlspecialchars($equipe['nom']) ?></option>
+                            <option value="<?php echo htmlspecialchars($equipe['id_adversaire']) ?>"><?php echo htmlspecialchars($equipe['nom_equipe_adverse']) ?></option>
                             <?php endwhile; ?>
                         </select>
-                        -->
+                        
                         <div class="checkbox">
                             <input type="checkbox" name="etre_domicile_saisie" id="etre_domicile_saisie"/><p>Se déroule à domicile</p> <br>
                         </div>  
