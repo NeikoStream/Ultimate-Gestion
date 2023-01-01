@@ -16,7 +16,7 @@ require '../fonctionPHP/connexionbd.php';
     ///Préparation de la requête sans les variables (marqueurs : nominatifs)
     ///DATE_FORMAT(datem, "%W %e %M %Y") (problème : en anglais)
 
-    $requete1 = $linkpdo->prepare('SELECT DATE_FORMAT(datem, "%d/%m/%Y") datem ,
+    $requete1 = $linkpdo->prepare('SELECT datem datem2,DATE_FORMAT(datem, "%d/%m/%Y") datem ,
                                 DATE_FORMAT(heurem,"%H:%i") heurem,
                                 nom_equipe_adverse,
                                 etre_domicile,
@@ -48,7 +48,7 @@ require '../fonctionPHP/connexionbd.php';
         <li class="listejoueurs">
             <a class="joueur" href="saisieMatch.php"><ul class="ajoutMatch">Ajouter un match</ul></a>
             <?php while($result = $requete1->fetch()): ?>
-                <a class="joueur" href="modifierMatch.php">
+                <a class="joueur" href="<?php echo "modifierMatch.php?datem=".$result['datem2']."&heurem=".$result['heurem']?>">
                     <ul>
                         <!--<img class="photo_joueur" src=<?php echo htmlspecialchars($result['image']); ?> 
                         alt="Blason de <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?>" width="100">-->
