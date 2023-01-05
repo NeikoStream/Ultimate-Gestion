@@ -15,7 +15,8 @@ require '../fonctionPHP/connexionbd.php';
 $adversaire = $linkpdo->prepare('SELECT * from adversaire');
 $adversaire->execute();
 
-$idEquipe = $linkpdo->prepare('SELECT nom_equipe_adverse, matchs.id_adversaire,etre_domicile from matchs , adversaire where datem = :datem and heurem= :heurem and matchs.id_adversaire = adversaire.id_adversaire;');
+//recuperer les donnée du match pour les afficher
+$idEquipe = $linkpdo->prepare('SELECT nom_equipe_adverse, matchs.id_adversaire,etre_domicile,score_equipe,score_adverse from matchs , adversaire where datem = :datem and heurem= :heurem and matchs.id_adversaire = adversaire.id_adversaire;');
 $idEquipe->execute(array('datem' => $datem , 'heurem' => $heurem));
 $equipeAdverse = $idEquipe->fetch();
 ?>
@@ -37,8 +38,6 @@ $equipeAdverse = $idEquipe->fetch();
                         
                         <label for="nom_equipe_adverse">Nom de l'équipe adverse :</label>
 
-                          
-                        
                         <select name="equipe" id="choix_equipe" required>
                             <option value="<?php echo htmlspecialchars($equipeAdverse['id_adversaire']) ?>">[ <?php echo htmlspecialchars($equipeAdverse['nom_equipe_adverse']) ?> ]</option>
                         <?php while ($equipe = $adversaire->fetch()): ?>
@@ -49,10 +48,13 @@ $equipeAdverse = $idEquipe->fetch();
                         <div class="checkbox">
                             <input type="checkbox" name="etre_domicile_saisie" id="etre_domicile_saisie" <?php if ($equipeAdverse['etre_domicile']) {
                             echo "checked"; } ?>/><p>Se déroule à domicile</p> <br>
-
-
                         </div>  
                         
+                        <label for="score">Score equipe :</label>
+                        <input type="number" id="scoremaison" name="scoremaison" min="0" max="100" value="<?php echo htmlspecialchars($equipeAdverse['score_equipe']) ?>">
+                        <label for="score">Score adversaire :</label>
+                        <input type="number" id="scoreadverse" name="scoreadverse" min="0" max="100" value="<?php echo htmlspecialchars($equipeAdverse['score_adverse']) ?>">
+
 						<button type="submit">Modifier</button>
                         <a href="<?php echo "../fonctionPHP/deleteMatch.php?datem=".$datem."&heurem=".$heurem?>">Supprimer</a>
                     </div>

@@ -29,7 +29,7 @@ require '../fonctionPHP/connexionbd.php';
     ///Liens entre variables PHP et marqueurs
    $requete1->execute();
 
-   $requete2 = $linkpdo->prepare('SELECT DATE_FORMAT(datem, "%d/%m/%Y") datem ,
+   $requete2 = $linkpdo->prepare('SELECT datem datem2,DATE_FORMAT(datem, "%d/%m/%Y") datem ,
                                 DATE_FORMAT(heurem,"%H:%i") heurem,
                                 nom_equipe_adverse,
                                 etre_domicile,
@@ -89,7 +89,7 @@ require '../fonctionPHP/connexionbd.php';
     <h2 class="titre_joueurs">Liste des matchs passés</h2>
         <li class="listejoueurs">
             <?php while($result = $requete2->fetch()): ?>
-            <a class="joueur" href="modifierMatch.php">
+            <a class="joueur" href="<?php echo "modifierMatch.php?datem=".$result['datem2']."&heurem=".$result['heurem']?>"">
                 <ul>
                     <!--<img class="photo_joueur" src=<?php echo htmlspecialchars($result['image']); ?> 
                     alt="Blason de <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?>" width="100">-->
