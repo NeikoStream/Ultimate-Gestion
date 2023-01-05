@@ -54,9 +54,10 @@ $equipeAdverse = $idEquipe->fetch();
                         <input type="number" id="scoremaison" name="scoremaison" min="0" max="100" value="<?php echo htmlspecialchars($equipeAdverse['score_equipe']) ?>">
                         <label for="score">Score adversaire :</label>
                         <input type="number" id="scoreadverse" name="scoreadverse" min="0" max="100" value="<?php echo htmlspecialchars($equipeAdverse['score_adverse']) ?>">
-
+                        <a href="<?php echo "feuilleMatch.php?datem=".$datem."&heurem=".$heurem?>">Feuille de match</a>
 						<button type="submit">Modifier</button>
                         <a href="<?php echo "../fonctionPHP/deleteMatch.php?datem=".$datem."&heurem=".$heurem?>">Supprimer</a>
+                        
                     </div>
                 </fieldset>
             </form>
