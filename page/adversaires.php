@@ -4,7 +4,7 @@
 require '../fonctionPHP/authentification.php';
 forcer_utilisateur_connecte();
 //Appel du header
-$title = "Joueurs";
+$title = "Adversaires";
 require 'header.php'; 
 
 // METHODE avec PDO
@@ -18,7 +18,7 @@ $query->execute();
 ?>
     <h2 class="titre_joueurs">Liste des équipes adverses</h2>
     <li class="listejoueurs">
-            <a class="joueur" href="saisieEquipe.php"><ul class="ajoutJoueur">Ajouter une équipe adverse</ul></a>
+            <a class="joueur" href="saisieEquipe.php"><ul class="ajoutAdversaire">Ajouter une équipe adverse</ul></a>
         <?php while ($row = $query->fetch()):
             $idequipe = $row['id_adversaire'];
             ?>

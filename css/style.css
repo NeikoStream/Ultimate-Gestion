@@ -274,6 +274,13 @@ a{
   margin:1%;
 }
 
+.joueur:hover{
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
 .joueur ul{
   width: 100%;
 }
@@ -310,7 +317,7 @@ a{
 }
 
 .ajoutJoueur{
-  line-height: 20em;
+  line-height: 22em;
   align-items: center;
 }
 
@@ -380,10 +387,16 @@ a{
   background-color: #8ca749;
 }
 
+/*Page Adversaires*/
+.ajoutAdversaire{
+  line-height: 9em;
+  align-items: center;
+}
+
 /*Page Matchs*/
 
 .ajoutMatch{
-  line-height: 5em;
+  line-height: 15em;
   align-items: center;
 }
 
