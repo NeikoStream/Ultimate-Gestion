@@ -11,17 +11,19 @@ $datem = htmlspecialchars($_GET["datem"]);
 
 // connexionBD
 require '../fonctionPHP/connexionbd.php';
-//recuperer les joueurs
-$joueurs = $linkpdo->prepare('SELECT * from joueur');
-$joueurs->execute();
+//recuperer les joueurs qui ne participe pas
+$joueurs = $linkpdo->prepare('SELECT DISTINCT joueur.numero_licence,joueur.nom,joueur.prenom from joueur where joueur.numero_licence not in (SELECT joueur.numero_licence from joueur,participer WHERE participer.datem = :datem AND participer.heurem = :heurem AND participer.numero_licence = joueur.numero_licence);');
+$joueurs->execute(array('datem' => $datem , 'heurem' => $heurem));
 
-//recuperer les donnée du match pour les afficher
-$idEquipe = $linkpdo->prepare('SELECT nom_equipe_adverse, matchs.id_adversaire,etre_domicile,score_equipe,score_adverse from matchs , adversaire where datem = :datem and heurem= :heurem and matchs.id_adversaire = adversaire.id_adversaire;');
-$idEquipe->execute(array('datem' => $datem , 'heurem' => $heurem));
-$equipeAdverse = $idEquipe->fetch();
+//recuperer les participant d'un match
+$paticipants = $linkpdo->prepare('SELECT participer.datem,participer.heurem ,joueur.numero_licence,joueur.nom,joueur.prenom from joueur,participer where participer.datem = :datem AND participer.heurem = :heurem AND joueur.numero_licence = participer.numero_licence;');
+$paticipants->execute(array('datem' => $datem , 'heurem' => $heurem));
+
+//preparation de la requete d'ajout d'un joueur a un match
+$addplayer = $linkpdo->prepare('INSERT INTO participer (numero_licence,datem, heurem) VALUES (:numero_licence, :datem, :heurem)');
 
 
-
+$deleteplayer = $linkpdo->prepare('DELETE from participer where numero_licence = :numero_licence AND datem = :datem AND heurem = :heurem');
 ?>
 
 <!--Partie HTML --> 
@@ -29,18 +31,73 @@ $equipeAdverse = $idEquipe->fetch();
 <html>
         
 		<section class=saisieJoueur>
-            <h2 class="cache">Formulaire de modification d'un match</h2>
-            <form action="<?php echo "../fonctionPHP/editfeuilleMatch.php?datem=".$datem."&heurem=".$heurem?>" method="post">
-                <fieldset>
-                    <legend>Modification d'un match</legend>
-                    <div class="choix-titulaire">
-                        <p><strong>Choisisez les titulaires (7)</strong></p>
-                        
-                        <?php while ($joueur = $joueurs->fetch()): ?>
-                        <input class="single-checkbox"type="checkbox" name="joueur" value="<?php echo htmlspecialchars($joueur['numero_licence']) ?>"><?php echo htmlspecialchars($joueur['nom']." ".$joueur['prenom']) ?> <br>
-                        <?php endwhile; ?>
-                    </div>
-                </fieldset>
+            <h2 class="cache">Feuille de match</h2>
+            <form action="#" method="post">
+            <fieldset>
+                <legend>Joueurs</legend>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>NumLicence</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th><input type="submit" class="button1" name="Actualiser" value="Actualiser"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $i = 0; 
+                            while ($joueur = $joueurs->fetch()):
+                            ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($joueur['numero_licence']) ?></td>
+                            <td><?php echo htmlspecialchars($joueur['nom']) ?></td>
+                            <td><?php echo htmlspecialchars($joueur['prenom']) ?></td>
+                            <td><input type="submit" name="add<?php echo $i?>" value="Ajouter"></td>
+                        </tr>
+                        <?php
+                        if(isset($_POST['add'.$i])){
+                            $addplayer->execute(array('numero_licence' =>$joueur['numero_licence'] ,'datem' => $datem , 'heurem' => $heurem));
+                        }
+                            $i++;
+                         endwhile; ?>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>Participants</legend>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>NumLicence</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th><input type="submit" class="button1" name="Actualiser" value="Actualiser"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        $i = 0; 
+                        while ($paticipant = $paticipants->fetch()): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($paticipant['numero_licence']) ?></td>
+                            <td><?php echo htmlspecialchars($paticipant['nom']) ?></td>
+                            <td><?php echo htmlspecialchars($paticipant['prenom']) ?></td>
+                            <td><input type="submit" name="delete<?php echo $i?>" value="Supprimer"></td>
+                        </tr>
+                        <?php
+                        if(isset($_POST['delete'.$i])){
+                            $deleteplayer->execute(array('numero_licence' =>$paticipant['numero_licence'] ,'datem' => $datem , 'heurem' => $heurem));
+                        }
+                            $i++;
+                         endwhile; ?>
+                    </tbody>
+                </table>
+            </fieldset>
+
+
+
             </form>
          </section>
 
