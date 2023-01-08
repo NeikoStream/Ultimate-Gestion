@@ -16,14 +16,17 @@ $joueurs = $linkpdo->prepare('SELECT DISTINCT joueur.numero_licence,joueur.nom,j
 $joueurs->execute(array('datem' => $datem , 'heurem' => $heurem));
 
 //recuperer les participant d'un match
-$paticipants = $linkpdo->prepare('SELECT participer.datem,participer.heurem ,joueur.numero_licence,joueur.nom,joueur.prenom from joueur,participer where participer.datem = :datem AND participer.heurem = :heurem AND joueur.numero_licence = participer.numero_licence;');
+$paticipants = $linkpdo->prepare('SELECT participer.datem,participer.heurem ,joueur.numero_licence,joueur.nom,joueur.prenom, participer.etre_titulaire from joueur,participer where participer.datem = :datem AND participer.heurem = :heurem AND joueur.numero_licence = participer.numero_licence;');
 $paticipants->execute(array('datem' => $datem , 'heurem' => $heurem));
 
 //preparation de la requete d'ajout d'un joueur a un match
 $addplayer = $linkpdo->prepare('INSERT INTO participer (numero_licence,datem, heurem) VALUES (:numero_licence, :datem, :heurem)');
 
-
+//preparation de la requete de suppression d'un joueur a un match
 $deleteplayer = $linkpdo->prepare('DELETE from participer where numero_licence = :numero_licence AND datem = :datem AND heurem = :heurem');
+
+//preparation de la requete d'edition d'un joueur a un match
+$editplayer = $linkpdo->prepare('UPDATE participer SET etre_titulaire = :etre_titulaire where numero_licence = :numero_licence AND datem = :datem AND heurem = :heurem');
 ?>
 
 <!--Partie HTML --> 
@@ -73,17 +76,21 @@ $deleteplayer = $linkpdo->prepare('DELETE from participer where numero_licence =
                             <th>NumLicence</th>
                             <th>Nom</th>
                             <th>Prénom</th>
+                            <th>Titulaire</th>
                             <th><input type="submit" class="button1" name="Actualiser" value="Actualiser"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
-                        $i = 0; 
-                        while ($paticipant = $paticipants->fetch()): ?>
+                        $i = 0;
+                        while ($paticipant = $paticipants->fetch()):
+                            $idJoueurs[$i] = $paticipant['numero_licence'];?>
                         <tr>
                             <td><?php echo htmlspecialchars($paticipant['numero_licence']) ?></td>
                             <td><?php echo htmlspecialchars($paticipant['nom']) ?></td>
                             <td><?php echo htmlspecialchars($paticipant['prenom']) ?></td>
+                            <td><input type="checkbox" name="etretitulaire<?php echo $i?>" id="etretitulaire" <?php if ($paticipant['etre_titulaire']) {
+                            echo "checked"; } ?>/></td>
                             <td><input type="submit" name="delete<?php echo $i?>" value="Supprimer"></td>
                         </tr>
                         <?php
@@ -95,8 +102,27 @@ $deleteplayer = $linkpdo->prepare('DELETE from participer where numero_licence =
                     </tbody>
                 </table>
             </fieldset>
-
-
+            
+            <button type="submit" name="Valider" value="Valider">Valider</button>    
+            <?php
+                        if(isset($_POST['Valider'])){
+                echo $i;
+                $a=0;
+                            while ($a<$i):
+                                    if (isset($_POST['etretitulaire'.$a])){
+                                        $etretitulaire = 1;
+                                        echo "<p> FONCTIONNE </p>";
+                                    }else{
+                                        $etretitulaire = 0;
+                                        echo "<p> FONCTIONNE PAS</p>";
+                                    }
+                                    $editplayer->execute(array('etre_titulaire'=> $etretitulaire,'numero_licence' =>$idJoueurs[$a] ,'datem' => $datem , 'heurem' => $heurem));
+                                $a++;
+                            endwhile;
+                            //code de modif etre titulaire (voir comment récuperer tous les )
+                        }
+                            
+                        ?>        
 
             </form>
          </section>
