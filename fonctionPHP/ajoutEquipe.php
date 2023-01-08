@@ -19,7 +19,7 @@
 		if($_FILES['photo_saisie']['size'] <= $tailleMax){
 			$extensionUpload = strtolower(substr(strrchr($_FILES['photo_saisie']['name'], '.'), 1));
 			if(in_array($extensionUpload,$extensionsValides)){
-				$chemin = "../img/".$idequipe['id_adversaire'].".".$extensionUpload;
+				$chemin = "../img/Equipe/".$idequipe['id_adversaire'].".".$extensionUpload;
 				$resultat = move_uploaded_file($_FILES['photo_saisie']['tmp_name'],$chemin);
 				if($resultat){
 					$photo = $idequipe['id_adversaire'].".".$extensionUpload;
