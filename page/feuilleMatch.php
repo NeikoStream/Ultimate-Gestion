@@ -16,7 +16,7 @@ $joueurs = $linkpdo->prepare('SELECT DISTINCT joueur.numero_licence,joueur.nom,j
 $joueurs->execute(array('datem' => $datem , 'heurem' => $heurem));
 
 //recuperer les participant d'un match
-$paticipants = $linkpdo->prepare('SELECT participer.datem,participer.heurem ,joueur.numero_licence,joueur.nom,joueur.prenom, participer.etre_titulaire from joueur,participer where participer.datem = :datem AND participer.heurem = :heurem AND joueur.numero_licence = participer.numero_licence;');
+$paticipants = $linkpdo->prepare('SELECT participer.datem,participer.heurem ,joueur.numero_licence,joueur.nom,joueur.prenom, participer.etre_titulaire, participer.poste from joueur,participer where participer.datem = :datem AND participer.heurem = :heurem AND joueur.numero_licence = participer.numero_licence;');
 $paticipants->execute(array('datem' => $datem , 'heurem' => $heurem));
 
 //preparation de la requete d'ajout d'un joueur a un match
@@ -26,7 +26,19 @@ $addplayer = $linkpdo->prepare('INSERT INTO participer (numero_licence,datem, he
 $deleteplayer = $linkpdo->prepare('DELETE from participer where numero_licence = :numero_licence AND datem = :datem AND heurem = :heurem');
 
 //preparation de la requete d'edition d'un joueur a un match
-$editplayer = $linkpdo->prepare('UPDATE participer SET etre_titulaire = :etre_titulaire where numero_licence = :numero_licence AND datem = :datem AND heurem = :heurem');
+$editplayer = $linkpdo->prepare('UPDATE participer SET etre_titulaire = :etre_titulaire ,poste = :poste where numero_licence = :numero_licence AND datem = :datem AND heurem = :heurem');
+
+//recup nbparticipant
+$nbpaticipants = $linkpdo->prepare('SELECT count(*) as nb from joueur,participer where participer.datem = :datem AND participer.heurem = :heurem AND joueur.numero_licence = participer.numero_licence;');
+$nbpaticipants->execute(array('datem' => $datem , 'heurem' => $heurem));
+$totalpaticipants = $nbpaticipants->fetch();
+
+//variable max joueur
+$maxplayer =7;
+
+//Etat match edit
+$editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare where datem = :datem AND heurem = :heurem');
+
 ?>
 
 <!--Partie HTML --> 
@@ -49,55 +61,73 @@ $editplayer = $linkpdo->prepare('UPDATE participer SET etre_titulaire = :etre_ti
                     </thead>
                     <tbody>
                         <?php
-                            $i = 0; 
+                            $nbjoueursnonparticipant = 0; 
                             while ($joueur = $joueurs->fetch()):
                             ?>
                         <tr>
                             <td><?php echo htmlspecialchars($joueur['numero_licence']) ?></td>
                             <td><?php echo htmlspecialchars($joueur['nom']) ?></td>
                             <td><?php echo htmlspecialchars($joueur['prenom']) ?></td>
-                            <td><input type="submit" name="add<?php echo $i?>" value="Ajouter"></td>
+                            <td>
+                            <?php if ($totalpaticipants['nb'] < $maxplayer){?>
+                                <input type="submit" name="add<?php echo $nbjoueursnonparticipant?>" value="Ajouter">
+                                
+                                <?php 
+                            }else{
+                                echo "max";
+                            }    ?>
+
+                            </td>
                         </tr>
                         <?php
-                        if(isset($_POST['add'.$i])){
+
+                        if(isset($_POST['add'.$nbjoueursnonparticipant])){
                             $addplayer->execute(array('numero_licence' =>$joueur['numero_licence'] ,'datem' => $datem , 'heurem' => $heurem));
+                            
                         }
-                            $i++;
+                        $nbjoueursnonparticipant++;
                          endwhile; ?>
                     </tbody>
                 </table>
             </fieldset>
 
             <fieldset>
-                <legend>Participants</legend>
+                <legend>Participants <?php echo $totalpaticipants['nb']." / ". $maxplayer?></legend>
                 <table>
                     <thead>
                         <tr>
                             <th>NumLicence</th>
                             <th>Nom</th>
                             <th>Prénom</th>
+                            <th>Rôle</th>
                             <th>Titulaire</th>
                             <th><input type="submit" class="button1" name="Actualiser" value="Actualiser"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
-                        $i = 0;
+                        $joueurparticipant = 0;
                         while ($paticipant = $paticipants->fetch()):
-                            $idJoueurs[$i] = $paticipant['numero_licence'];?>
+                            $idJoueurs[$joueurparticipant] = $paticipant['numero_licence'];?>
                         <tr>
                             <td><?php echo htmlspecialchars($paticipant['numero_licence']) ?></td>
                             <td><?php echo htmlspecialchars($paticipant['nom']) ?></td>
                             <td><?php echo htmlspecialchars($paticipant['prenom']) ?></td>
-                            <td><input type="checkbox" name="etretitulaire<?php echo $i?>" id="etretitulaire" <?php if ($paticipant['etre_titulaire']) {
+                            <td><select name="poste<?php echo $joueurparticipant?>" id="poste_saisie">
+                                    <option value="<?php echo htmlspecialchars($paticipant['poste']) ?>">[ <?php echo htmlspecialchars($paticipant['poste']) ?> ]</option>
+                                    <option value="Attaquant">Attaquant</option>
+                                    <option value="Défenseur">Défenseur</option>
+                                    <option value="Aucun">Aucun</option>
+                                </select></td>
+                            <td><input type="checkbox" name="etretitulaire<?php echo $joueurparticipant?>" id="etretitulaire" <?php if ($paticipant['etre_titulaire']) {
                             echo "checked"; } ?>/></td>
-                            <td><input type="submit" name="delete<?php echo $i?>" value="Supprimer"></td>
+                            <td><input type="submit" name="delete<?php echo $joueurparticipant?>" value="Supprimer"></td>
                         </tr>
                         <?php
-                        if(isset($_POST['delete'.$i])){
+                        if(isset($_POST['delete'.$joueurparticipant])){
                             $deleteplayer->execute(array('numero_licence' =>$paticipant['numero_licence'] ,'datem' => $datem , 'heurem' => $heurem));
                         }
-                            $i++;
+                        $joueurparticipant++;
                          endwhile; ?>
                     </tbody>
                 </table>
@@ -106,20 +136,32 @@ $editplayer = $linkpdo->prepare('UPDATE participer SET etre_titulaire = :etre_ti
             <button type="submit" name="Valider" value="Valider">Valider</button>    
             <?php
                         if(isset($_POST['Valider'])){
-                echo $i;
                 $a=0;
-                            while ($a<$i):
+                            while ($a<$joueurparticipant):
                                     if (isset($_POST['etretitulaire'.$a])){
                                         $etretitulaire = 1;
-                                        echo "<p> FONCTIONNE </p>";
                                     }else{
                                         $etretitulaire = 0;
-                                        echo "<p> FONCTIONNE PAS</p>";
                                     }
-                                    $editplayer->execute(array('etre_titulaire'=> $etretitulaire,'numero_licence' =>$idJoueurs[$a] ,'datem' => $datem , 'heurem' => $heurem));
+
+                                    if (isset($_POST['poste'.$a])){
+                                        $poste = $_POST['poste'.$a];
+                                    }else{
+                                        $poste = NULL;
+                                    }
+
+                                    
+                                    $editplayer->execute(array('poste' => $poste,'etre_titulaire'=> $etretitulaire,'numero_licence' =>$idJoueurs[$a] ,'datem' => $datem , 'heurem' => $heurem));
                                 $a++;
                             endwhile;
-                            //code de modif etre titulaire (voir comment récuperer tous les )
+                            
+                            //Définit l'état du match si nbjoueur suffisant
+                            if ($totalpaticipants['nb'] == $maxplayer){
+                                $etat = 1;
+                            }else{
+                                $etat = 0;
+                            }
+                            $editetat ->execute(array('etre_prepare'=> $etat,'datem' => $datem , 'heurem' => $heurem));
                         }
                             
                         ?>        
