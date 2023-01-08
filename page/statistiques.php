@@ -30,7 +30,6 @@ $joueurs = $linkpdo->prepare('SELECT CONCAT(prenom," ", nom) AS affichage_nom, p
     WHERE matchs.datem = participer.datem 
     and matchs.heurem = participer.heurem 
     and joueur.numero_licence = participer.numero_licence 
-    and participer.etre_titulaire = 1
     group by affichage_nom;');
 
 ///Liens enthe variables PHP et marqueurs
@@ -83,9 +82,15 @@ $nbMatchs = $victoires[0] + $defaites[0] + $nuls[0]
       <td><?php echo htmlspecialchars($result['moynotes']); ?></td>
       <td>
         <?php
-      $winrate = (($result['win'] + 0.5 * $result['draw']) / ($result['win'] + $result['loose'] + $result['draw']) * 100);
-      echo htmlspecialchars($winrate);
-        ?>%
+        if (($result['win'] + $result['loose'] + $result['draw']) == 0){
+          echo "Aucun match";
+      }else{
+        $winrate = (($result['win'] + 0.5 * $result['draw']) / ($result['win'] + $result['loose'] + $result['draw']) * 100);
+        echo htmlspecialchars($winrate)." %";
+      }
+      
+      
+        ?>
       </td>
     </tr>
     <?php endwhile; ?>
