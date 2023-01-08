@@ -48,7 +48,7 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
 		<section class=saisieJoueur>
             <h2 class="cache">Feuille de match</h2>
             <form action="#" method="post">
-            <div>
+            
             <fieldset>
                 <legend>Joueurs</legend>
                 <table>
@@ -132,11 +132,12 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
                          endwhile; ?>
                     </tbody>
                 </table>
-                
-                <a href="<?php echo "modifierMatch.php?datem=".$datem."&heurem=".$heurem?>">Retour</a>
-                <button type="submit" name="Valider" value="Valider">Valider</button>   
-                </div> 
+                 
             </fieldset>
+                <div>
+                    <a href="<?php echo "modifierMatch.php?datem=".$datem."&heurem=".$heurem?>">Retour</a>
+                    <button type="submit" name="Valider" value="Valider">Valider</button>   
+                </div>
             
             <?php
                         if(isset($_POST['Valider'])){
@@ -166,7 +167,7 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
                                 $etat = 0;
                             }
                             $editetat ->execute(array('etre_prepare'=> $etat,'datem' => $datem , 'heurem' => $heurem));
-
+                            
                         }
                             
                         ?>        
