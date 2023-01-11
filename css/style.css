@@ -143,7 +143,7 @@ a {
 @media screen and (max-width: 1032px) {
   .navbar {
     padding: 0;
-    width: 100vw;
+    width: 100%;
   }
   .nav-links {
     top: 0;
