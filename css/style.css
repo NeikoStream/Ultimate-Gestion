@@ -5,8 +5,6 @@
   transition: all 0.3s ease-in-out;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-    
-    
 }
 ul {
   list-style-type: none;
@@ -16,7 +14,7 @@ li {
   list-style-type: none;
 }
 
-a{
+a {
   text-decoration: none;
   color: black;
 }
@@ -51,7 +49,8 @@ a{
 }
 
 /* Full-width inputs */
-#username,#password{
+#username,
+#password {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -61,7 +60,7 @@ a{
 }
 
 /* Set a style for all buttons */
-#login_btn{
+#login_btn {
   background-color: #a0bf53;
   color: white;
   padding: 14px 20px;
@@ -82,12 +81,9 @@ a{
   clear: both;
   overflow: auto;
   background-color: rgb(239, 239, 239);
-  width: 100vw;
-  top:0;
+  top: 0;
   left: 0;
 }
-
-
 
 .navbar {
   padding: 50px;
@@ -97,7 +93,7 @@ a{
   box-sizing: border-box;
   align-items: center;
 }
-.logo{
+.logo {
   display: flex;
   align-items: center;
   font-size: 20px;
@@ -105,16 +101,13 @@ a{
 .Texte-Logo {
   padding: 50px;
   font-family: raleway;
-  
 }
 
-.navbar .nav-links ul{
+.navbar .nav-links ul {
   display: flex;
 }
 
-
-
-.navbar .nav-links ul li a{
+.navbar .nav-links ul li a {
   margin: 0 25px;
   font-size: 20px;
   font-family: raleway;
@@ -125,14 +118,14 @@ a{
   color: #a0bf53;
 }
 
-.navbar #logout a{
+.navbar #logout a {
   color: red;
 }
 
 .navbar #logout a:hover {
   color: #a0bf53;
 }
-.navbar #menuHamb{
+.navbar #menuHamb {
   position: absolute;
   top: 100px;
   right: 50px;
@@ -141,19 +134,19 @@ a{
   z-index: 1;
 }
 
-.nav-links.mobile-menu{
-  margin-left : 0;
+.nav-links.mobile-menu {
+  margin-left: 0;
 }
 
 /*Partie responsive du menu*/
 
-@media screen and (max-width:1032px) {
-  .navbar{
+@media screen and (max-width: 1032px) {
+  .navbar {
     padding: 0;
     width: 100vw;
   }
-  .nav-links{
-    top:0;
+  .nav-links {
+    top: 0;
     left: 0;
     position: absolute;
     background-color: rgba(255, 255, 255, 0.756);
@@ -163,44 +156,42 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left : -100%;
+    margin-left: -100%;
     z-index: 1;
   }
 
-  .nav-links ul{
+  .nav-links ul {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .navbar .logo{
+  .navbar .logo {
     display: absolute;
     top: 200px;
     left: 50px;
-
   }
 
-  .logo{
+  .logo {
     padding: 20px;
   }
 
-  .Texte-Logo{
+  .Texte-Logo {
     display: none;
   }
-  .navbar #menuHamb{
+  .navbar #menuHamb {
     display: block;
   }
 
-  .navbar .nav-links ul li{
+  .navbar .nav-links ul li {
     margin: 25px 0;
   }
 
-  .navbar .nav-links ul li a{
+  .navbar .nav-links ul li a {
     font-size: 3.5em;
     font-family: raleway;
     color: black;
   }
 }
-
 
 /*Page Accueil*/
 
@@ -229,21 +220,15 @@ a{
   margin-bottom: 2%;
 }
 
-.match h1{
+.match h1 {
   width: 20%;
   text-align: center;
-
 }
-
 
 .SeparationScore {
   margin: auto;
   text-align: center;
-
-  
 }
-
-
 
 .LogoEquipe {
   margin: auto;
@@ -252,71 +237,71 @@ a{
 }
 
 /*Page joueurs*/
-.titre_joueurs{
-  text-align:center;
-  margin:1%;
+.titre_joueurs {
+  text-align: center;
+  margin: 1%;
 }
 
-.listejoueurs{
+.listejoueurs {
   display: flex;
   flex-wrap: wrap;
-  margin:1%;
+  margin: 1%;
 }
 
-.joueur{
+.joueur {
   display: flex;
   justify-content: center;
   width: 20.5%;
   border: 1px solid #f1f1f1;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   text-align: center;
-  padding:1%;
-  margin:1%;
+  padding: 1%;
+  margin: 1%;
 }
 
-.joueur:hover{
+.joueur:hover {
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
   -moz-transform: scale(1.05);
   transform: scale(1.05);
 }
 
-.joueur ul{
+.joueur ul {
   width: 100%;
 }
 
-.photo_joueur{
+.photo_joueur {
   text-align: center;
 }
 
-.joueur h3{
+.joueur h3 {
   text-align: center;
-  margin:1%;
+  margin: 1%;
 }
 
-.statut_joueur{
+.statut_joueur {
   text-align: center;
-  margin:1%;
-  color:gray
+  margin: 1%;
+  color: gray;
 }
 
-.info_joueurs{
+.info_joueurs {
   text-align: left;
 }
 
-.note{
+.note {
   width: 100%;
   border: solid grey 1px;
   text-align: justify;
-  min-height:10%;
+  min-height: 10%;
 }
 
-.n_licence{
+.n_licence {
   text-align: right;
-  vertical-align:bottom;
+  vertical-align: bottom;
 }
 
-.ajoutJoueur{
+.ajoutJoueur {
   line-height: 22em;
   align-items: center;
 }
@@ -327,7 +312,7 @@ a{
   display: none;
 }
 
-.saisieJoueur form{
+.saisieJoueur form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -345,15 +330,15 @@ a{
   text-align: center;
 }
 
-.saisieJoueur  label {
+.saisieJoueur label {
   display: block;
   font-size: 1.2em;
   font-weight: bold;
   margin: 1em 0;
 }
 
-.mesure{
-  display:flex;
+.mesure {
+  display: flex;
   align-items: center;
 }
 
@@ -372,48 +357,47 @@ a{
   border-color: #555;
 }
 
-.saisieJoueur button{
-  margin:10px;
+.saisieJoueur button {
+  margin: 10px;
   font-size: 1.2em;
   font-weight: bold;
   padding: 0.5em 1em;
   border: none;
   border-radius: 5px;
   background-color: #a0bf53;
-  color: #fff;;
+  color: #fff;
 }
 
-.saisieJoueur button:hover{
+.saisieJoueur button:hover {
   background-color: #8ca749;
 }
 
 /*Page Adversaires*/
-.ajoutAdversaire{
+.ajoutAdversaire {
   line-height: 9em;
   align-items: center;
 }
 
 /*Page Matchs*/
 
-.ajoutMatch{
+.ajoutMatch {
   line-height: 15em;
   align-items: center;
 }
 
-.prepare{
-  color:red;
-  font-weight:bold;
+.prepare {
+  color: red;
+  font-weight: bold;
 }
 
 .checkbox {
-  margin : 25px;
+  margin: 25px;
   display: flex;
 }
 
 .checkbox p {
-  white-space:nowrap;
+  white-space: nowrap;
 }
-
 
 /*Partie Statistique*/
 .winrate {
@@ -426,94 +410,99 @@ a{
   border: 1px solid #f1f1f1;
   background: #fff;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  
 }
-.winrate h1{
+.winrate h1 {
   margin-bottom: 5%;
 }
-.winrate p{
+.winrate p {
   margin-top: 5%;
 }
 
-.progress-circle{
+.progress-circle {
   margin: 0 auto;
-  position: relative;             /* pour servir de référent */
-  box-sizing: border-box;         /* prise en compte bordure dans la dimension */
-  font-size: 6em;                 /* pour définir les dimensions */
-  width: 1em;                     /* fixe la largeur */
-  height: 1em;                    /* fixe la hauteur */
-  border-radius: 50%;             /* rendu aspect circulaire */
-  border: .15em solid rgb(249, 99, 99);       /* couleur de fond de l'anneau */
-  background-color: #FFF;         /* couleur de fond de la progress bar */
+  position: relative; /* pour servir de référent */
+  box-sizing: border-box; /* prise en compte bordure dans la dimension */
+  font-size: 6em; /* pour définir les dimensions */
+  width: 1em; /* fixe la largeur */
+  height: 1em; /* fixe la hauteur */
+  border-radius: 50%; /* rendu aspect circulaire */
+  border: 0.15em solid rgb(249, 99, 99); /* couleur de fond de l'anneau */
+  background-color: #fff; /* couleur de fond de la progress bar */
 }
 
 .progress-masque {
   position: absolute;
-  width: 1em;                     /* 100% de la largeur */
-  height: 1em;                    /* 100% de la hauteur */
-  left: -.15em;                   /* décalage de la largeur bordure de la gauge */
-  top: -.15em;                    /* décalage de la largeur bordure de la gauge */
-  clip: rect(0, 1em, 1em, .5em);  /* par défaut seule la partie droite est visible */
+  width: 1em; /* 100% de la largeur */
+  height: 1em; /* 100% de la hauteur */
+  left: -0.15em; /* décalage de la largeur bordure de la gauge */
+  top: -0.15em; /* décalage de la largeur bordure de la gauge */
+  clip: rect(
+    0,
+    1em,
+    1em,
+    0.5em
+  ); /* par défaut seule la partie droite est visible */
 }
 
 .progress-barre,
 .progress-sup50 {
   position: absolute;
-  box-sizing: border-box;         /* prise en compte bordure dans la dimension */
-  border-width: .15em;            /* largeur bordure de la gauge */
+  box-sizing: border-box; /* prise en compte bordure dans la dimension */
+  border-width: 0.15em; /* largeur bordure de la gauge */
   border-style: solid;
   border-color: rgb(59, 153, 0);
-  border-radius: 50%;             /* rendu aspect circulaire */
-  width: 1em;                     /* largeur à 100% */
-  height: 1em;                    /* hauteur à 100% */
-  clip: rect(0, .5em, 1em, 0);    /* on ne garde que la partie gauche */
+  border-radius: 50%; /* rendu aspect circulaire */
+  width: 1em; /* largeur à 100% */
+  height: 1em; /* hauteur à 100% */
+  clip: rect(0, 0.5em, 1em, 0); /* on ne garde que la partie gauche */
 }
 
 .progress-sup50 {
   display: none;
-  clip: rect(0, 1em, 1em, .5em);
+  clip: rect(0, 1em, 1em, 0.5em);
 }
 
 .progress-circle:after {
-  content: attr(data-value) "%";  /* récup. valeur de progression */
-  font-size: 0.15em;              /* taille de la font en % du parent */
-  height: 100%;                   /* centrage dans le parent */
+  content: attr(data-value) "%"; /* récup. valeur de progression */
+  font-size: 0.15em; /* taille de la font en % du parent */
+  height: 100%; /* centrage dans le parent */
   display: flex;
   align-items: center;
   justify-content: center;
 
   /*-- pour effet shadow intérieur --*/
   border-radius: 50%;
-  box-shadow: 0 0 .5em rgba(0, 0, 0, .5) inset;
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5) inset;
 }
 
 /*Tableau*/
 
-#colonne{
-    background-color: #3f87a6;
-    color: #fff;
+#colonne {
+  background-color: #3f87a6;
+  color: #fff;
 }
 
 #donneeJoueur {
-    background-color: #e4f0f5;
+  background-color: #e4f0f5;
 }
 
 #statjoueur {
-    border-collapse: collapse;
-    border: 2px solid rgb(200, 200, 200);
-    letter-spacing: 1px;
-    font-family: sans-serif;
-    font-size: 1em;
-    width: 100%;
+  border-collapse: collapse;
+  border: 2px solid rgb(200, 200, 200);
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  font-size: 1em;
+  width: 100%;
 }
 
-#colonne,#donneeJoueur td,
+#colonne,
+#donneeJoueur td,
 th {
-    border: 1px solid rgb(190, 190, 190);
-    padding: 5px 10px;
+  border: 1px solid rgb(190, 190, 190);
+  padding: 5px 10px;
 }
 
-#colonne,#donneeJoueur td {
-    text-align: center;
+#colonne,
+#donneeJoueur td {
+  text-align: center;
 }
-
