@@ -2,7 +2,7 @@
 require 'connexionbd.php';
 $imgEquipe = $linkpdo->prepare('SELECT img from joueur where numero_licence = :numero_licence');
 $imgEquipe->execute(array('numero_licence' => $numlic));
-$imge = $imgJoueur->fetch();
+$imge = $imgEquipe->fetch();
 
 unlink('../img/Equipe/'.$imge['img']);
 
