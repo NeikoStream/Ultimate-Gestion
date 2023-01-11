@@ -12,7 +12,7 @@ $datem = htmlspecialchars($_GET["datem"]);
 // connexionBD
 require '../fonctionPHP/connexionbd.php';
 //recuperer les joueurs qui ne participe pas
-$joueurs = $linkpdo->prepare('SELECT DISTINCT joueur.numero_licence,joueur.nom,joueur.prenom from joueur where joueur.numero_licence not in (SELECT joueur.numero_licence from joueur,participer WHERE participer.datem = :datem AND participer.heurem = :heurem AND participer.numero_licence = joueur.numero_licence);');
+$joueurs = $linkpdo->prepare('SELECT DISTINCT * from joueur where joueur.numero_licence not in (SELECT joueur.numero_licence from joueur,participer WHERE participer.datem = :datem AND participer.heurem = :heurem AND participer.numero_licence = joueur.numero_licence);');
 $joueurs->execute(array('datem' => $datem , 'heurem' => $heurem));
 
 //recuperer les participant d'un match
@@ -54,9 +54,14 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
                 <table>
                     <thead>
                         <tr>
+                            <th>Photo</th>
                             <th>NumLicence</th>
                             <th>Nom</th>
                             <th>Prénom</th>
+                            <th>Taille</th>
+                            <th>Poids</th>
+                            <th>Poste préférer</th>
+                            <th>Commentaire</th>
                             <th><input type="submit" class="button1" name="Actualiser" value="Actualiser"></th>
                         </tr>
                     </thead>
@@ -66,9 +71,14 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
                             while ($joueur = $joueurs->fetch()):
                             ?>
                         <tr>
+                            <td><img src="../img/<?php echo htmlspecialchars($joueur['photo']) ?>" alt="" height=50 width=50></td>
                             <td><?php echo htmlspecialchars($joueur['numero_licence']) ?></td>
                             <td><?php echo htmlspecialchars($joueur['nom']) ?></td>
                             <td><?php echo htmlspecialchars($joueur['prenom']) ?></td>
+                            <td><?php echo htmlspecialchars($joueur['taille']) ?> cm</td>
+                            <td><?php echo htmlspecialchars($joueur['poids']) ?> kg</td>
+                            <td><?php echo htmlspecialchars($joueur['poste_prefere']) ?></td>
+                            <td><?php echo htmlspecialchars($joueur['note_perso']) ?></td>
                             <td>
                             <?php if ($totalpaticipants['nb'] < $maxplayer){?>
                                 <input type="submit" name="add<?php echo $nbjoueursnonparticipant?>" value="Ajouter">
@@ -111,9 +121,11 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
                         while ($paticipant = $paticipants->fetch()):
                             $idJoueurs[$joueurparticipant] = $paticipant['numero_licence'];?>
                         <tr>
+                            
                             <td><?php echo htmlspecialchars($paticipant['numero_licence']) ?></td>
                             <td><?php echo htmlspecialchars($paticipant['nom']) ?></td>
                             <td><?php echo htmlspecialchars($paticipant['prenom']) ?></td>
+                            
                             <td><select name="poste<?php echo $joueurparticipant?>" id="poste_saisie">
                                     <option value="<?php echo htmlspecialchars($paticipant['poste']) ?>">[ <?php echo htmlspecialchars($paticipant['poste']) ?> ]</option>
                                     <option value="Attaquant">Attaquant</option>
