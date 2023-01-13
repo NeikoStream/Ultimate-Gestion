@@ -49,9 +49,10 @@ $equipeAdverse = $idEquipe->fetch();
                             <input type="checkbox" name="etre_domicile_saisie" id="etre_domicile_saisie" <?php if ($equipeAdverse['etre_domicile']) {
                             echo "checked"; } ?>/><p>Se déroule à domicile</p> <br>
                         </div>  
-
-                        <button class="feuillematch bouton" href="<?php echo "feuilleMatch.php?datem=".$datem."&heurem=".$heurem?>">Feuille de match</button>
                         
+                        <hr>
+                        <button class="feuillematch bouton" href="<?php echo "feuilleMatch.php?datem=".$datem."&heurem=".$heurem?>">Feuille de match</button>
+                        <hr>
                         <label for="score">Score equipe :</label>
                         <input type="number" id="scoremaison" name="scoremaison" min="0" max="100" value="<?php echo htmlspecialchars($equipeAdverse['score_equipe']) ?>">
                         <label for="score">Score adversaire :</label>
