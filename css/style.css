@@ -194,15 +194,14 @@ a {
 }
 
 /*footer*/
-footer{
+footer {
   background-color: rgb(239, 239, 239);
-  margin-top:10px;
+  margin-top: 10px;
 }
 
-footer p{
+footer p {
   margin: 10px;
 }
-
 
 /*Page Accueil*/
 
@@ -378,36 +377,35 @@ footer p{
   padding: 0.5em 1em;
   border: none;
   border-radius: 5px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.bouton{
+.bouton {
   background-color: #a0bf53;
   color: #fff;
 }
 
-.supprimer{
+.supprimer {
   background-color: #ff4b4b;
   color: #fff;
 }
 
-.feuillematch{
+.feuillematch {
   justify-content: center;
   text-align: center;
   display: flex;
 }
 
-.bouton_form{
-  display:flex;
+.bouton_form {
+  display: flex;
 }
-
 
 .bouton:hover {
   background-color: #8ca749;
   color: #000000;
 }
 
-.supprimer:hover{
+.supprimer:hover {
   background-color: red;
   color: #000000;
 }
@@ -431,8 +429,10 @@ footer p{
 }
 
 .checkbox {
-  margin: 25px;
+  width: 50%;
   display: flex;
+  margin-bottom: 5%;
+  margin-top: 5%;
 }
 
 .checkbox p {
