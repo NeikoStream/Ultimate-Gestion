@@ -193,6 +193,17 @@ a {
   }
 }
 
+/*footer*/
+footer{
+  background-color: rgb(239, 239, 239);
+  margin-top:10px;
+}
+
+footer p{
+  margin: 10px;
+}
+
+
 /*Page Accueil*/
 
 #Titre-accueil {
@@ -358,18 +369,47 @@ a {
 }
 
 .saisieJoueur button {
-  margin: 10px;
+  margin: 10px auto;
+  justify-content: center;
+  text-align: center;
+  /*display: flex;*/
   font-size: 1.2em;
   font-weight: bold;
   padding: 0.5em 1em;
   border: none;
   border-radius: 5px;
+  cursor:pointer;
+}
+
+.bouton{
   background-color: #a0bf53;
   color: #fff;
 }
 
-.saisieJoueur button:hover {
+.supprimer{
+  background-color: #ff4b4b;
+  color: #fff;
+}
+
+.feuillematch{
+  justify-content: center;
+  text-align: center;
+  display: flex;
+}
+
+.bouton_form{
+  display:flex;
+}
+
+
+.bouton:hover {
   background-color: #8ca749;
+  color: #000000;
+}
+
+.supprimer:hover{
+  background-color: red;
+  color: #000000;
 }
 
 /*Page Adversaires*/

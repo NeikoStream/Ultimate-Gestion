@@ -11,7 +11,7 @@ require 'header.php';
 // récupérer tous les joueurs
 require '../fonctionPHP/connexionbd.php';
 ///Préparation de la requête sans les variables (marqueurs : nominatifs)
-$query= $linkpdo->prepare('SELECT *,DATE_FORMAT(date_naissance, "%d/%m/%Y") datej FROM joueur');
+$query= $linkpdo->prepare('SELECT *,DATE_FORMAT(date_naissance, "%d/%m/%Y") datej FROM joueur ORDER by prenom, nom');
  ///Liens entre variables PHP et marqueurs
 $query->execute();
 
@@ -42,5 +42,5 @@ $query->execute();
             </a>
         <?php endwhile; ?>
     </li>
-</body>
-</html>
+
+<?php require 'footer.php'; ?>
