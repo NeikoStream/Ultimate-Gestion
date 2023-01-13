@@ -28,7 +28,7 @@ $equipe = $query->fetch()
                     <div>
                         
                         <label for="nom_equipe_adverse">Nom de l'équipe adverse :</label>
-                        <input type="text" name="nom_equipe_adverse_saisie" id="nom_equipe_adverse_saisie" placeholder="Ex : Les frisbees" maxlength="100" value="<?php echo $equipe["nom"]?>" required/><br>
+                        <input type="text" name="nom_equipe_adverse_saisie" id="nom_equipe_adverse_saisie" placeholder="Ex : Les frisbees" maxlength="100" value="<?php echo $equipe["nom_equipe_adverse"]?>" required/><br>
 
                         <label for="photo">Photo :</label>
                         <input type="file" name="photo_saisie" id="photo_saisie" accept="image/png, image/jpeg" value="<?php echo $equipe["img"]?>"/><br>
