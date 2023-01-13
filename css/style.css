@@ -230,6 +230,10 @@ footer p {
   margin-bottom: 2%;
 }
 
+.match:hover {
+  background-color: rgb(195, 194, 194);
+}
+
 .match h1 {
   width: 20%;
   text-align: center;

@@ -7,6 +7,7 @@ $imgJoueur->execute(array('numero_licence' => $numlic));
 $imgj = $imgJoueur->fetch();
 
 unlink('../img/'.$imgj['photo']);
+
 $req = $linkpdo->prepare('DELETE FROM joueur WHERE numero_licence = :numero_licence');
 $req->execute(array('numero_licence' => $numlic));
 

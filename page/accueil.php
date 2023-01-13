@@ -38,25 +38,27 @@ $matchsaison->execute();
                         </select></h1>
 <div class="Container-match">
     <?php while ($match = $matchsaison->fetch()): ?>
-    <div class="match">
-        <div class="Equipe1">
-            <img class="LogoEquipe" src="../img/Equipe/TFC_LOGO.png" alt="">
-            
-        </div>
-        <h1>Toulouse Ultimate Club</h1>
-            <h1><?php echo htmlspecialchars($match['score_equipe']) ?></h1>
+    <a class="boutonmodif" href="<?php echo "modifierMatch.php?datem=".$match['datetrie']."&heurem=".$match['heurem']?>">
+        <div class="match">
+            <div class="Equipe1">
+                <img class="LogoEquipe" src="../img/Equipe/TFC_LOGO.png" alt="">
+                
+            </div>
+            <h1>Toulouse Ultimate Club</h1>
+                <h1><?php echo htmlspecialchars($match['score_equipe']) ?></h1>
 
-        <div class="SeparationScore">
-        <a class="boutonmodif" href="<?php echo "modifierMatch.php?datem=".$match['datetrie']."&heurem=".$match['heurem']?>">Modifier match</a>
-            <h2 id="datematch"><?php echo htmlspecialchars($match['datem']) ?></h2>
+            <div class="SeparationScore">
+            
+                <h2 id="datematch"><?php echo htmlspecialchars($match['datem']) ?></h2>
+            </div>
+                <h1><?php echo htmlspecialchars($match['score_adverse']) ?></h1>
+            <h1><?php echo htmlspecialchars($match['nom_equipe_adverse']) ?></h1>
+            
+            <div class="Equipe2">
+                <img class="LogoEquipe" src="../img/Equipe/<?php echo htmlspecialchars($match['img']) ?>" alt="">
+            </div>
         </div>
-            <h1><?php echo htmlspecialchars($match['score_adverse']) ?></h1>
-        <h1><?php echo htmlspecialchars($match['nom_equipe_adverse']) ?></h1>
-        
-        <div class="Equipe2">
-            <img class="LogoEquipe" src="../img/Equipe/<?php echo htmlspecialchars($match['img']) ?>" alt="">
-        </div>
-    </div>
+    </a>
     <?php endwhile; ?>
 
 </div>
