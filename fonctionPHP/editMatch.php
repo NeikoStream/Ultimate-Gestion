@@ -22,8 +22,6 @@
         $scoreAdverse = $_POST['scoremaison'];
       }
 
-echo "Score equipe : ".$scoreEquipe;
-echo "Score Adverse : " . $scoreAdverse;
 	$req = $linkpdo->prepare('UPDATE matchs SET datem= :datem,heurem= :heurem,id_adversaire=:id_adversaire,etre_domicile= :etre_domicile, score_equipe = :score_equipe, score_adverse = :score_adverse WHERE datem= :dateAvant AND heurem = :heureAvant');
 	$req->execute(array('datem' => $datem,
                         'heurem' => $heurem,
