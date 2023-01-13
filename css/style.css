@@ -381,7 +381,8 @@ footer p {
   border-color: #555;
 }
 
-.saisieJoueur button {
+.saisieJoueur button,
+a {
   margin: 10px auto;
   justify-content: center;
   text-align: center;

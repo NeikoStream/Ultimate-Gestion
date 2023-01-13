@@ -35,7 +35,7 @@ $equipe = $query->fetch()
                         
                         <div class="bouton_form">
                             <button class="bouton" type="submit">Modifier</button>
-                            <button class="supprimer" href="<?php echo "../fonctionPHP/deleteEquipe.php?idEquipe=".$idequipe?>">Supprimer</button>
+                            <a class="supprimer" href="<?php echo "../fonctionPHP/deleteEquipe.php?idEquipe=".$idequipe?>">Supprimer</a>
                         </div>
                     </div>
                 </fieldset>
