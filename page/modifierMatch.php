@@ -16,7 +16,7 @@ $adversaire = $linkpdo->prepare('SELECT * from adversaire');
 $adversaire->execute();
 
 //recuperer les donnée du match pour les afficher
-$idEquipe = $linkpdo->prepare('SELECT nom_equipe_adverse, matchs.id_adversaire,etre_domicile,score_equipe,score_adverse from matchs , adversaire where datem = :datem and heurem= :heurem and matchs.id_adversaire = adversaire.id_adversaire;');
+$idEquipe = $linkpdo->prepare('SELECT nom_equipe_adverse, matchs.id_adversaire,etre_domicile,score_equipe,score_adverse,etre_prepare from matchs , adversaire where datem = :datem and heurem= :heurem and matchs.id_adversaire = adversaire.id_adversaire;');
 $idEquipe->execute(array('datem' => $datem , 'heurem' => $heurem));
 $equipeAdverse = $idEquipe->fetch();
 ?>
@@ -49,10 +49,19 @@ $equipeAdverse = $idEquipe->fetch();
                             <input type="checkbox" name="etre_domicile_saisie" id="etre_domicile_saisie" <?php if ($equipeAdverse['etre_domicile']) {
                             echo "checked"; } ?>/><p>Se déroule à domicile</p> <br>
                         </div>  
+                        <div class="etat-match">
+                            <hr>
+                            <?php
+                            if($equipeAdverse['etre_prepare']){
+                                echo "<h1 style='color: green'>Match pret</h1>";
+                            } else {
+                                echo "<h1 style='color: red'>Match à préparer</h1>";
+                            } ?>
+                            
                         
-                        <hr>
-                        <button class="feuillematch bouton" href="<?php echo "feuilleMatch.php?datem=".$datem."&heurem=".$heurem?>">Feuille de match</button>
-                        <hr>
+                            <button class="feuillematch bouton" href="<?php echo "feuilleMatch.php?datem=".$datem."&heurem=".$heurem?>">Feuille de match</button>
+                            <hr>
+                        </div>
                         <label for="score">Score equipe :</label>
                         <input type="number" id="scoremaison" name="scoremaison" min="0" max="100" value="<?php echo htmlspecialchars($equipeAdverse['score_equipe']) ?>">
                         <label for="score">Score adversaire :</label>
