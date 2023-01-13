@@ -29,7 +29,7 @@ $deleteplayer = $linkpdo->prepare('DELETE from participer where numero_licence =
 $editplayer = $linkpdo->prepare('UPDATE participer SET etre_titulaire = :etre_titulaire ,poste = :poste where numero_licence = :numero_licence AND datem = :datem AND heurem = :heurem');
 
 //recup nbparticipant
-$nbpaticipants = $linkpdo->prepare('SELECT count(*) as nb from joueur,participer where participer.datem = :datem AND participer.heurem = :heurem AND joueur.numero_licence = participer.numero_licence;');
+$nbpaticipants = $linkpdo->prepare('SELECT count(*) as nb from joueur,participer where participer.etre_titulaire = 1 AND  participer.datem = :datem AND participer.heurem = :heurem AND joueur.numero_licence = participer.numero_licence;');
 $nbpaticipants->execute(array('datem' => $datem , 'heurem' => $heurem));
 $totalpaticipants = $nbpaticipants->fetch();
 
@@ -60,7 +60,7 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
                             <th>Prénom</th>
                             <th>Taille</th>
                             <th>Poids</th>
-                            <th>Poste préférer</th>
+                            <th>Poste préféré</th>
                             <th>Commentaire</th>
                             <th><input type="submit" class="button1" name="Actualiser" value="Actualiser"></th>
                         </tr>
@@ -79,14 +79,8 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
                             <td><?php echo htmlspecialchars($joueur['poids']) ?> kg</td>
                             <td><?php echo htmlspecialchars($joueur['poste_prefere']) ?></td>
                             <td><?php echo htmlspecialchars($joueur['note_perso']) ?></td>
-                            <td>
-                            <?php if ($totalpaticipants['nb'] < $maxplayer){?>
-                                <input type="submit" name="add<?php echo $nbjoueursnonparticipant?>" value="Ajouter">
+                            <td><input type="submit" name="add<?php echo $nbjoueursnonparticipant?>" value="Ajouter">
                                 
-                                <?php 
-                            }else{
-                                echo "max";
-                            }    ?>
 
                             </td>
                         </tr>
@@ -101,9 +95,15 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
                     </tbody>
                 </table>
             </fieldset>
-
+            <?php
+            if($totalpaticipants['nb'] == $maxplayer){
+                echo "<h1>Match pret</h1>";
+            } else {
+                echo "<h1>Match à préparer</h1>";
+            } ?>
+            
             <fieldset>
-                <legend>Participants <?php echo $totalpaticipants['nb']." / ". $maxplayer?></legend>
+                <legend>Titulaires : <?php echo $totalpaticipants['nb']." / ". $maxplayer?></legend>
                 <table>
                     <thead>
                         <tr>
@@ -172,7 +172,7 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
                                 $a++;
                             endwhile;
                             
-                            //Définit l'état du match si nbjoueur suffisant
+                            //Définit l'état du match si nbtitulaire suffisant
                             if ($totalpaticipants['nb'] == $maxplayer){
                                 $etat = 1;
                             }else{
@@ -186,6 +186,7 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
 
             </form>
          </section>
+
 
          
 <?php require 'footer.php'; ?>
