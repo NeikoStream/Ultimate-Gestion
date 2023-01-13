@@ -532,7 +532,8 @@ footer p{
   letter-spacing: 1px;
   font-family: sans-serif;
   font-size: 1em;
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
 }
 
 #colonne,
