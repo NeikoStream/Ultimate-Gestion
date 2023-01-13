@@ -147,8 +147,8 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
                  
             </fieldset>
                 <div>
-                    <a href="<?php echo "modifierMatch.php?datem=".$datem."&heurem=".$heurem?>">Retour</a>
-                    <button type="submit" name="Valider" value="Valider">Valider</button>   
+                    <a class="bouton" href="<?php echo "modifierMatch.php?datem=".$datem."&heurem=".$heurem?>">Retour</a>
+                    <button class="bouton" type="submit" name="Valider" value="Valider">Valider</button>   
                 </div>
             
             <?php

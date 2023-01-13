@@ -59,7 +59,7 @@ $equipeAdverse = $idEquipe->fetch();
                             } ?>
                             
                         
-                            <button class="feuillematch bouton" href="<?php echo "feuilleMatch.php?datem=".$datem."&heurem=".$heurem?>">Feuille de match</button>
+                            <a class="feuillematch bouton" href="<?php echo "feuilleMatch.php?datem=".$datem."&heurem=".$heurem?>">Feuille de match</a>
                             <hr>
                         </div>
                         <label for="score">Score equipe :</label>
@@ -69,7 +69,7 @@ $equipeAdverse = $idEquipe->fetch();
                         
                         <div class="bouton_form">
                             <button class="bouton" type="submit">Modifier</button>
-                            <button class="supprimer" href="<?php echo "../fonctionPHP/deleteMatch.php?datem=".$datem."&heurem=".$heurem?>">Supprimer</button>
+                            <a class="supprimer" href="<?php echo "../fonctionPHP/deleteMatch.php?datem=".$datem."&heurem=".$heurem?>">Supprimer</a>
                         </div>
                     </div>
                 </fieldset>

@@ -68,7 +68,7 @@ $joueurs = $query->fetch()
                         </select><br>
                         <div class="bouton_form">
                             <button class="bouton" type="submit">Modifier</button>
-                            <button class="supprimer" href="<?php echo "../fonctionPHP/deleteJoueur.php?lic=".$numlic?>">Supprimer</button>
+                            <a class="supprimer" href="<?php echo "../fonctionPHP/deleteJoueur.php?lic=".$numlic?>">Supprimer</a>
                         </div>
                     </div>
                 </fieldset>
