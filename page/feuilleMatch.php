@@ -186,5 +186,7 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
 
             </form>
          </section>
-	</body>
-</html>
+
+
+         
+<?php require 'footer.php'; ?>

@@ -98,3 +98,5 @@ $nbMatchs = $victoires[0] + $defaites[0] + $nuls[0]
 </table>
 
 <script src="../js/winrate.js"></script>
+
+<?php require 'footer.php'; ?>

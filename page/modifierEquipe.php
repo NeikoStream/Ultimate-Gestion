@@ -33,11 +33,13 @@ $equipe = $query->fetch()
                         <label for="photo">Photo :</label>
                         <input type="file" name="photo_saisie" id="photo_saisie" accept="image/png, image/jpeg" value="<?php echo $equipe["img"]?>"/><br>
                         
-						<button type="submit">Modifier</button>
-                        <a href="<?php echo "../fonctionPHP/deleteEquipe.php?idEquipe=".$idequipe?>">Supprimer</a>
+                        <div class="bouton_form">
+                            <button class="bouton" type="submit">Modifier</button>
+                            <button class="supprimer" href="<?php echo "../fonctionPHP/deleteEquipe.php?idEquipe=".$idequipe?>">Supprimer</button>
+                        </div>
                     </div>
                 </fieldset>
             </form>
          </section>
-	</body>
-</html>
+
+<?php require 'footer.php'; ?>

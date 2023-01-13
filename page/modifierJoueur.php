@@ -66,15 +66,16 @@ $joueurs = $query->fetch()
                             <option value="Suspendu">Suspendu</option>
                             <option value="Absent">Absent</option>
                         </select><br>
-						<button type="submit">Modifier</button>
-                        <a href="<?php echo "../fonctionPHP/deleteJoueur.php?lic=".$numlic?>">Supprimer</a>
-						<!-- <button type="submit">Supprimer</button>-->
+                        <div class="bouton_form">
+                            <button class="bouton" type="submit">Modifier</button>
+                            <button class="supprimer" href="<?php echo "../fonctionPHP/deleteJoueur.php?lic=".$numlic?>">Supprimer</button>
+                        </div>
                     </div>
                 </fieldset>
             </form>
          </section>
-	</body>
-</html>
+
+<?php require 'footer.php'; ?>
 
 
 

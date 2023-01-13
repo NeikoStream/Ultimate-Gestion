@@ -31,5 +31,5 @@ $query->execute();
             </a>
         <?php endwhile; ?>
     </li>
-</body>
-</html>
+
+<?php require 'footer.php'; ?>

@@ -23,8 +23,10 @@ require 'header.php';
                         <label for="photo">Photo :</label>
                         <input type="file" name="photo_saisie" id="photo_saisie" accept="image/png, image/jpeg"/><br>
                         
-						<button type="reset">Effacer</button>
-						<button type="submit">Valider</button>
+                        <div class="bouton_form">
+                            <button class="supprimer" type="submit">Effacer</button>
+                            <button class="bouton" type="submit">Valider</button>
+                        </div>
                     </div>
                 </fieldset>
             </form>

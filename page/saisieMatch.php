@@ -45,11 +45,13 @@ $adversaire->execute();
                             <input type="checkbox" name="etre_domicile_saisie" id="etre_domicile_saisie"/><p>Se déroule à domicile</p> <br>
                         </div>  
                         
-						<button type="reset">Effacer</button>
-						<button type="submit">Valider</button>
+						<div class="bouton_form">
+                            <button class="supprimer" type="submit">Effacer</button>
+                            <button class="bouton" type="submit">Valider</button>
+                        </div>
                     </div>
                 </fieldset>
             </form>
          </section>
-	</body>
-</html>
+
+ <?php require 'footer.php'; ?>

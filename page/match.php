@@ -122,5 +122,5 @@ require '../fonctionPHP/connexionbd.php';
             </a>
             <?php endwhile; ?>
         </li>
-</body>
-</html>
+
+<?php require 'footer.php'; ?>

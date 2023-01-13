@@ -57,11 +57,13 @@ require 'header.php';
                             <option value="Suspendu">Suspendu</option>
                             <option value="Absent">Absent</option>
                         </select><br>
-						<button type="reset">Effacer</button>
-						<button type="submit">Valider</button>
+						<div class="bouton_form">
+                            <button class="supprimer" type="submit">Effacer</button>
+                            <button class="bouton" type="submit">Valider</button>
+                        </div>
                     </div>
                 </fieldset>
             </form>
          </section>
-	</body>
-</html>
+
+<?php require 'footer.php'; ?>
