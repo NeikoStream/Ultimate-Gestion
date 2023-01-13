@@ -431,7 +431,10 @@ footer p {
 }
 
 /*Page Matchs*/
-
+.etat-match {
+  justify-content: center;
+  text-align: center;
+}
 .ajoutMatch {
   line-height: 15em;
   align-items: center;
