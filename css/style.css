@@ -21,6 +21,8 @@
     "Lucida Sans", Arial, sans-serif;
 }
 
+
+
 ul {
   list-style-type: none;
 }
@@ -155,7 +157,7 @@ a {
 
 /*Partie responsive du menu*/
 
-@media screen and (max-width: 1172px) {
+@media screen and (max-width: 1439px) {
   .navbar {
     padding: 0;
     width: 100%;
@@ -216,13 +218,32 @@ footer {
   position: absolute;
   justify-content: center;
   width: 100%;
-
+  padding: 1% 0;
   left: 0;
   right: 0;
 }
 
-footer p {
-  margin: 10px;
+.footerP{
+  display: inline;
+  
+}
+
+.footerP p{
+  display: inline;
+  color: #000000;
+  font-size: 1%;
+  margin: 0;
+  font-size: 1em;
+  padding: 0;
+}
+
+.footerP a{
+  padding: 0;
+  display: inline;
+  color: #000000;
+  font-size: 1%;
+  margin: 0;
+  font-size: 1em;
 }
 
 /*Page Accueil*/
@@ -395,12 +416,11 @@ footer p {
   border-color: var(--borderColorFocus);
 }
 
-.saisieJoueur button,
+.saisieJoueur button ,
 a {
   margin: 10px auto;
   justify-content: center;
   text-align: center;
-  /*display: flex;*/
   font-size: 1.2em;
   font-weight: bold;
   padding: 0.5em 1em;
