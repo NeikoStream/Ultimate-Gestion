@@ -19,7 +19,7 @@
     if ($_POST['scoreadverse'] == NULL) {
         $scoreAdverse = NULL;
     }else{
-        $scoreAdverse = $_POST['scoremaison'];
+        $scoreAdverse = $_POST['scoreadverse'];
       }
 
 echo "Score equipe : ".$scoreEquipe;
