@@ -526,7 +526,7 @@ a {
   position: absolute;
   width: 1em; /* 100% de la largeur */
   height: 1em; /* 100% de la hauteur */
-  left: -0.15em; /* décalage de la largeur bordure de la gauge */
+  left: -0.137em; /* décalage de la largeur bordure de la gauge */
   top: -0.15em; /* décalage de la largeur bordure de la gauge */
   clip: rect(
     0,
