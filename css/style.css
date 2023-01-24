@@ -1,7 +1,7 @@
 :root{
   --textColor:#000000;
   --boxShadowColor:#0000003d;
-  --borderColorFocus:#555;
+  --borderColorFocus:#b2b2b2;
   --backgroundColorMenu:#efefef;
   --borderColor:#f1f1f1;
   --whiteColor:#fff;
@@ -155,7 +155,7 @@ a {
 
 /*Partie responsive du menu*/
 
-@media screen and (max-width: 1032px) {
+@media screen and (max-width: 1172px) {
   .navbar {
     padding: 0;
     width: 100%;
@@ -253,7 +253,7 @@ footer p {
 }
 
 .match:hover {
-  background-color: var(--borderColor);
+  background-color: var(--borderColorFocus);
 }
 
 .match h1 {
