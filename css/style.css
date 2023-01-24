@@ -103,7 +103,7 @@ a {
 }
 
 .navbar {
-  padding: 50px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   width: 100%;
