@@ -19,7 +19,13 @@ $adversaire->execute();
 $idEquipe = $linkpdo->prepare('SELECT nom_equipe_adverse, matchs.id_adversaire,etre_domicile,score_equipe,score_adverse,etre_prepare from matchs , adversaire where datem = :datem and heurem= :heurem and matchs.id_adversaire = adversaire.id_adversaire;');
 $idEquipe->execute(array('datem' => $datem , 'heurem' => $heurem));
 $equipeAdverse = $idEquipe->fetch();
+
+
+date_default_timezone_set('Europe/Paris');
+$date = date('Y-m-d');
 ?>
+
+
 
 <!--Partie HTML --> 
 <html>
@@ -62,11 +68,14 @@ $equipeAdverse = $idEquipe->fetch();
                             <a class="feuillematch bouton" href="<?php echo "feuilleMatch.php?datem=".$datem."&heurem=".$heurem?>">Feuille de match</a>
                             <hr>
                         </div>
+                        <?php
+                        if ($date > $datem) { ?>
                         <label for="score">Score equipe :</label>
                         <input type="number" id="scoremaison" name="scoremaison" min="0" max="100" value="<?php echo htmlspecialchars($equipeAdverse['score_equipe']) ?>">
                         <label for="score">Score adversaire :</label>
                         <input type="number" id="scoreadverse" name="scoreadverse" min="0" max="100" value="<?php echo htmlspecialchars($equipeAdverse['score_adverse']) ?>">
                         
+                        <?php }?>
                         <div class="bouton_form">
                             <button class="bouton" type="submit">Modifier</button>
                             <a class="supprimer" href="<?php echo "../fonctionPHP/deleteMatch.php?datem=".$datem."&heurem=".$heurem?>">Supprimer</a>
