@@ -48,7 +48,13 @@ $matchsaison->execute();
                 <h1><?php echo htmlspecialchars($match['score_equipe']) ?></h1>
 
             <div class="SeparationScore">
-            
+                <?php if($match['score_equipe'] > $match['score_adverse']) { ?>
+                    <h2 style='color: #a0bf53'>Victoire</h2>
+                <?php }elseif($match['score_equipe'] < $match['score_adverse']){ ?>
+                    <h2 style='color: #ff4b4b'>Défaite</h2>  
+                <?php }else{ ?>
+                    <h2 style='color: #5a5a5a'>Égalité</h2>  
+                <?php } ?>
                 <h2 id="datematch"><?php echo htmlspecialchars($match['datem']) ?></h2>
             </div>
                 <h1><?php echo htmlspecialchars($match['score_adverse']) ?></h1>

@@ -1,7 +1,7 @@
 :root{
   --textColor:#000000;
   --boxShadowColor:#0000003d;
-  --borderColorFocus:#b2b2b2;
+  --borderColorFocus:#d7d7d7;
   --backgroundColorMenu:#efefef;
   --borderColor:#f1f1f1;
   --whiteColor:#fff;
@@ -325,10 +325,11 @@ footer {
   transform: scale(1.05);
 }
 
-.joueur li {
+
+
+.joueur ul {
   width: 100%;
-  height: 100%;
-  padding: 3%;
+  padding: 2%;
 }
 
 .photo_joueur {
@@ -505,6 +506,7 @@ a {
 .prepare {
   color: var(--warningColor);
   font-weight: bold;
+  padding: 5%;
 }
 
 .checkbox {
@@ -518,6 +520,9 @@ a {
   white-space: nowrap;
 }
 
+.nomadversaire{
+  padding: 5%;
+}
 /*Partie Statistique*/
 .winrate {
   display: block;

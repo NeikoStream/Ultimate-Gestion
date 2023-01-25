@@ -45,6 +45,14 @@ require '../fonctionPHP/connexionbd.php';
 
     $requete2->execute();
     
+    //Liste des titulaire
+
+    $requete3 = $linkpdo->prepare('SELECT j.nom nom,j.prenom prenom
+                                                    from joueur j, participer p
+                                                    where j.numero_licence=p.numero_licence
+                                                    and p.etre_titulaire=1
+                                                    and DATE_FORMAT(p.datem, "%d/%m/%Y")=:vardate
+                                                    and DATE_FORMAT(p.heurem,"%H:%i")=:varheure');
 
     //Match dont le score ou la feuille de match n'est pas saisie
 
@@ -71,19 +79,12 @@ require '../fonctionPHP/connexionbd.php';
                         alt="Blason de <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?>" width="100">-->
                         <h3>Le <?php echo htmlspecialchars($result['datem']); ?> à <?php echo htmlspecialchars($result['heurem'])?></h3>
                         <p class="statut_joueur"><?php if(htmlspecialchars($result['etre_domicile'])==1)echo "A domicile";else echo"</br>";?></p>
-                        <p>Adversaires : <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?></p>
+                        <p class="nomadversaire">Adversaires : <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?></p>
                         <?php if(htmlspecialchars($result['etre_prepare'])==1) {?>
                             <h4>Joueurs Titulaire :</h4>
                             <?php
                                 $vardate=htmlspecialchars($result['datem']);
                                 $varheure=htmlspecialchars($result['heurem']);
-                                $requete3 = $linkpdo->prepare('SELECT j.nom nom,j.prenom prenom
-                                                            from joueur j, participer p
-                                                            where j.numero_licence=p.numero_licence
-                                                            and p.etre_titulaire=1
-                                                            and DATE_FORMAT(p.datem, "%d/%m/%Y")=:vardate
-                                                            and DATE_FORMAT(p.heurem,"%H:%i")=:varheure');
-
                                 $requete3->execute(array(":vardate" => $vardate, ":varheure" => $varheure));
                             ?>
                             <ul>
@@ -112,19 +113,12 @@ require '../fonctionPHP/connexionbd.php';
                         alt="Blason de <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?>" width="100">-->
                         <h3>Le <?php echo htmlspecialchars($result['datem']); ?> à <?php echo htmlspecialchars($result['heurem'])?></h3>
                         <p class="statut_joueur"><?php if(htmlspecialchars($result['etre_domicile'])==1)echo "A domicile";else echo"</br>";?></p>
-                        <p>Adversaires : <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?></p>
+                        <p class="nomadversaire">Adversaires : <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?></p>
                         <?php if(htmlspecialchars($result['etre_prepare'])==1) {?>
                             <h4>Joueurs Titulaire :</h4>
                             <?php
                                 $vardate=htmlspecialchars($result['datem']);
                                 $varheure=htmlspecialchars($result['heurem']);
-                                $requete3 = $linkpdo->prepare('SELECT j.nom nom,j.prenom prenom
-                                                            from joueur j, participer p
-                                                            where j.numero_licence=p.numero_licence
-                                                            and p.etre_titulaire=1
-                                                            and DATE_FORMAT(p.datem, "%d/%m/%Y")=:vardate
-                                                            and DATE_FORMAT(p.heurem,"%H:%i")=:varheure');
-
                                 $requete3->execute(array(":vardate" => $vardate, ":varheure" => $varheure));
                             ?>
                             <ul>
@@ -157,19 +151,12 @@ require '../fonctionPHP/connexionbd.php';
                     alt="Blason de <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?>" width="100">-->
                     <h3>Le <?php echo htmlspecialchars($result['datem']); ?> à <?php echo htmlspecialchars($result['heurem'])?></h3>
                     <p class="statut_joueur"><?php if(htmlspecialchars($result['etre_domicile'])==1)echo "A domicile";?></p>
-                    <p>Adversaires : <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?></p>
+                    <p class="nomadversaire">Adversaires : <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?></p>
                     <p>Score : <?php echo htmlspecialchars($result['score_equipe']); ?>-<?php echo htmlspecialchars($result['score_adverse']); ?></p>
-                    <h4>Joueurs Titulaire :</h4>
+                    <h4 class="nomadversaire">Joueurs Titulaire :</h4>
                     <?php
                         $vardate=htmlspecialchars($result['datem']);
                         $varheure=htmlspecialchars($result['heurem']);
-                        $requete3 = $linkpdo->prepare('SELECT j.nom nom,j.prenom prenom
-                                                    from joueur j, participer p
-                                                    where j.numero_licence=p.numero_licence
-                                                    and p.etre_titulaire=1
-                                                    and DATE_FORMAT(p.datem, "%d/%m/%Y")=:vardate
-                                                    and DATE_FORMAT(p.heurem,"%H:%i")=:varheure');
-
                         $requete3->execute(array(":vardate" => $vardate, ":varheure" => $varheure));
                     ?>
                     <ul>
