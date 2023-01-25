@@ -48,13 +48,24 @@ $nbMatchs = $victoires[0] + $defaites[0] + $nuls[0]
   ?>
 <div class="winrate">
   <h1>Taux de victoire</h1>
-  <div class="progress-circle" data-value="<?php echo (($victoires[0] + 0.5 * $nuls[0]) / $nbMatchs * 100) ?>"></div>
-  <p>
-  Match total : <?php echo $nbMatchs ?> <br>
-  Victoire : <?php echo $victoires[0] ?> <br>
-  Défaites : <?php echo $defaites[0] ?> <br>
-  Nuls : <?php echo $nuls[0] ?></p>
-</div>
+
+  <div class="progress"></div>
+
+  <script src="../js/circle-progress.min.js"></script>
+
+  <script>
+      new CircleProgress('.progress', {
+      max: 100,
+      value: <?php echo (($victoires[0] + 0.5 * $nuls[0]) / $nbMatchs * 100) ?>,
+      textFormat: 'percent',
+    });
+  </script>
+    <p>
+    Match total : <?php echo $nbMatchs ?> <br>
+    Victoire : <?php echo $victoires[0] ?> <br>
+    Défaites : <?php echo $defaites[0] ?> <br>
+    Nuls : <?php echo $nuls[0] ?></p>
+  </div>
 
 
 <table id="statjoueur">
@@ -86,7 +97,7 @@ $nbMatchs = $victoires[0] + $defaites[0] + $nuls[0]
           echo "Aucun match";
       }else{
         $winrate = (($result['win'] + 0.5 * $result['draw']) / ($result['win'] + $result['loose'] + $result['draw']) * 100);
-        echo htmlspecialchars($winrate)." %";
+        echo htmlspecialchars(round($winrate,1))." %";
       }
       
       
