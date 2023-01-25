@@ -28,10 +28,15 @@ $deleteplayer = $linkpdo->prepare('DELETE from participer where numero_licence =
 //preparation de la requete d'edition d'un joueur a un match
 $editplayer = $linkpdo->prepare('UPDATE participer SET etre_titulaire = :etre_titulaire ,poste = :poste where numero_licence = :numero_licence AND datem = :datem AND heurem = :heurem');
 
-//recup nbparticipant
+//recup nbTitulaire
 $nbpaticipants = $linkpdo->prepare('SELECT count(*) as nb from joueur,participer where participer.etre_titulaire = 1 AND  participer.datem = :datem AND participer.heurem = :heurem AND joueur.numero_licence = participer.numero_licence;');
 $nbpaticipants->execute(array('datem' => $datem , 'heurem' => $heurem));
 $totalpaticipants = $nbpaticipants->fetch();
+
+//recup nbRemplacants
+$nbremplacant = $linkpdo->prepare('SELECT count(*) as nb from joueur,participer where participer.etre_titulaire = 0 AND  participer.datem = :datem AND participer.heurem = :heurem AND joueur.numero_licence = participer.numero_licence;');
+$nbremplacant->execute(array('datem' => $datem , 'heurem' => $heurem));
+$totalremplacant = $nbremplacant->fetch();
 
 //variable max joueur
 $maxplayer =7;
@@ -97,13 +102,13 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
             </fieldset>
             <?php
             if($totalpaticipants['nb'] == $maxplayer){
-                echo "<h1>Match pret</h1>";
+                echo '<h1 style="color: green">Match pret</h1>';
             } else {
-                echo "<h1>Match à préparer</h1>";
+                echo '<h1 style="color: red">Match à préparer</h1>';
             } ?>
             
             <fieldset>
-                <legend>Titulaires : <?php echo $totalpaticipants['nb']." / ". $maxplayer?></legend>
+                <legend>Titulaires : <?php echo $totalpaticipants['nb'] . " / " . $maxplayer ?> - Remplaçants : <?php echo $totalremplacant['nb']; ?></legend>
                 <table>
                     <thead>
                         <tr>
@@ -147,8 +152,8 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
                  
             </fieldset>
                 <div>
-                    <a href="<?php echo "modifierMatch.php?datem=".$datem."&heurem=".$heurem?>">Retour</a>
-                    <button type="submit" name="Valider" value="Valider">Valider</button>   
+                    <a class="bouton" href="<?php echo "modifierMatch.php?datem=".$datem."&heurem=".$heurem?>">Retour</a>
+                    <button class="bouton" type="submit" name="Valider" value="Valider">Valider</button>   
                 </div>
             
             <?php

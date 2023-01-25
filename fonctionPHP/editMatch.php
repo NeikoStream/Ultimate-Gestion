@@ -19,7 +19,7 @@
     if ($_POST['scoreadverse'] == NULL) {
         $scoreAdverse = NULL;
     }else{
-        $scoreAdverse = $_POST['scoremaison'];
+        $scoreAdverse = $_POST['scoreadverse'];
       }
 
 	$req = $linkpdo->prepare('UPDATE matchs SET datem= :datem,heurem= :heurem,id_adversaire=:id_adversaire,etre_domicile= :etre_domicile, score_equipe = :score_equipe, score_adverse = :score_adverse WHERE datem= :dateAvant AND heurem = :heureAvant');

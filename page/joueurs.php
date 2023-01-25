@@ -17,30 +17,39 @@ $query->execute();
 
 ?>
     <h2 class="titre_joueurs">Liste des joueurs</h2>
-    <li class="listejoueurs">
-            <a class="joueur" href="saisieJoueur.php"><ul class="ajoutJoueur">Ajouter un joueur</ul></a>
+    <ul class="listejoueurs">
+            <a class="joueur" href="saisieJoueur.php"><li class="ajoutJoueur"><p>Ajouter un joueur</p></li></a>
         <?php while ($row = $query->fetch()):
             $numlic = $row['numero_licence'];
             ?>
 
             <a class="joueur" href="<?php echo "modifierJoueur.php?lic=".$numlic?>">
-                <ul>
+                <li>
                     <img class="photo_joueur" src="../img/<?php echo $row['photo']; ?>" alt="photo de <?php echo htmlspecialchars($row['prenom']); ?>
                     <?php echo htmlspecialchars($row['nom']); ?>" width="100">
                     <h3><?php echo htmlspecialchars($row['prenom']); ?> <?php echo htmlspecialchars($row['nom']); ?></h3>
-                    <p class="statut_joueur"><?php echo htmlspecialchars($row['statut']); ?></p>
-                    <br/>
+                    <p class="statut_joueur"><?php echo htmlspecialchars($row['statut']); ?></p>                    
                     <p class="info_joueurs">Poste préféré : <?php echo htmlspecialchars($row['poste_prefere']); ?></p>
                     <p class="info_joueurs">Taille : <?php echo htmlspecialchars($row['taille']); ?> cm</p>
                     <p class="info_joueurs">Poids : <?php echo htmlspecialchars($row['poids']); ?> kg</p>
                     <p class="info_joueurs">Date de naissance : <?php echo htmlspecialchars($row['datej']); ?></p>
                     <p class="info_joueurs">Commentaire</p>
-                    <div class="note"><p><?php echo htmlspecialchars($row['note_perso']); ?></p></div>
-                    <br/>
+                    <div class="note">
+                        <p>
+                            <?php 
+                            if($row['note_perso'] == null){
+                                echo "Pas de commentaire.";
+                            }else{
+                                echo htmlspecialchars($row['note_perso']); 
+                            }
+                            
+                            ?>
+                        </p>
+                    </div>   
                     <p class="n_licence"><?php echo htmlspecialchars($row['numero_licence']); ?></p>
-                </ul>
+        </li>
             </a>
         <?php endwhile; ?>
-    </li>
+    </ul>
 
 <?php require 'footer.php'; ?>
