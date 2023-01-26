@@ -31,7 +31,7 @@
 
     <div class="nav-links">
       <ul>
-        <li><a href="Accueil.php">
+        <li><a href="accueil.php">
             Accueil
           </a></li>
         <li><a href="match.php">
