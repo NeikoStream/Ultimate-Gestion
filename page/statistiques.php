@@ -90,7 +90,7 @@ $nbMatchs = $victoires[0] + $defaites[0] + $nuls[0]
       <td><?php echo htmlspecialchars($result['poste_prefere']); ?></td>
       <td><?php echo htmlspecialchars($result['titulaire']); ?></td>
       <td><?php echo htmlspecialchars($result['remplacant']); ?></td>
-      <td><?php echo htmlspecialchars($result['moynotes']); ?></td>
+      <td><?php echo htmlspecialchars(round($result['moynotes'],1)); ?> / 5</td>
       <td>
         <?php
         if (($result['win'] + $result['loose'] + $result['draw']) == 0){
