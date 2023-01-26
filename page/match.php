@@ -75,8 +75,6 @@ require '../fonctionPHP/connexionbd.php';
             <?php while($result = $requete1->fetch()): ?>
                 <a class="carte" href="<?php echo "modifierMatch.php?datem=".$result['datem2']."&heurem=".$result['heurem']?>">
                     <li>
-                        <!--<img class="photo_joueur" src=<?php echo htmlspecialchars($result['image']); ?> 
-                        alt="Blason de <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?>" width="100">-->
                         <h3>Le <?php echo htmlspecialchars($result['datem']); ?> à <?php echo htmlspecialchars($result['heurem'])?></h3>
                         <p class="statut"><?php if(htmlspecialchars($result['etre_domicile'])==1)echo "A domicile";else echo "Extérieur";?></p>
                         <p class="nomadversaire">Adversaires : <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?></p>
