@@ -25,7 +25,7 @@ $query->execute();
 
             <a class="carte" href="<?php echo "modifierJoueur.php?lic=".$numlic?>">
                 <li>
-                    <img class="photo_joueur" src="../img/<?php echo $row['photo']; ?>" alt="photo de <?php echo htmlspecialchars($row['prenom']); ?>
+                    <img class="photo_joueur" src="../img/Joueurs/<?php echo $row['photo']; ?>" alt="photo de <?php echo htmlspecialchars($row['prenom']); ?>
                     <?php echo htmlspecialchars($row['nom']); ?>" width="100">
                     <h3><?php echo htmlspecialchars($row['prenom']); ?> <?php echo htmlspecialchars($row['nom']); ?></h3>
                     <p class="statut"><?php echo htmlspecialchars($row['statut']); ?></p>                    

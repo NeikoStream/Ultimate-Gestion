@@ -3,7 +3,7 @@
 require '../fonctionPHP/authentification.php';
 forcer_utilisateur_connecte();
 //Appel du header
-$title = "Saisie Joueur";
+$title = "Modifier Joueur";
 require 'header.php'; 
 //appel a la method de recuperation du parmettre dans l'url
 $numlic = htmlspecialchars($_GET["lic"]);

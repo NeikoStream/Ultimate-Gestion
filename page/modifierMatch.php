@@ -4,7 +4,7 @@
 require '../fonctionPHP/authentification.php';
 forcer_utilisateur_connecte();
 //Appel du header
-$title = "modifier Match";
+$title = "Modifier match";
 require 'header.php'; 
 $heurem = htmlspecialchars($_GET["heurem"]);
 $datem = htmlspecialchars($_GET["datem"]);
