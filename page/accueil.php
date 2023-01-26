@@ -31,11 +31,11 @@ $matchsaison->execute();
 ?>
 
 <h1 id="Titre-accueil">Match de la saison
-                        <select name="choix_saison" id="choix_saison" required>
+                        <!-- <select name="choix_saison" id="choix_saison" required>
                         <?php while ($annee = $recupAnneeSaison->fetch()): ?>
                             <option value="<?php echo htmlspecialchars($annee['datesaison']) ?>"><?php echo htmlspecialchars($annee['datesaison']) ?></option>
                             <?php endwhile; ?>
-                        </select></h1>
+                        </select> --></h1>
 <div class="Container-match">
     <?php while ($match = $matchsaison->fetch()): ?>
     <a class="boutonmodif" href="<?php echo "modifierMatch.php?datem=".$match['datetrie']."&heurem=".$match['heurem']?>">
