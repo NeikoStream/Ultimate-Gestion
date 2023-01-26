@@ -24,7 +24,7 @@ $victory= $linkpdo->prepare('SELECT SUM(matchs.score_equipe>matchs.score_adverse
 
 ?>
     <h2 class="titre">Liste des équipes adverses</h2>
-    <li class="liste">
+    <ul class="liste">
             <a class="carte" href="saisieEquipe.php"><ul class="ajoutAdversaire">Ajouter une équipe adverse</ul></a>
         <?php while ($row = $query->fetch()):
             $idequipe = $row['id_adversaire'];
@@ -38,17 +38,18 @@ $victory= $linkpdo->prepare('SELECT SUM(matchs.score_equipe>matchs.score_adverse
             ?>
 
             <a class="carte" href="<?php echo "modifierEquipe.php?idequipe=".$idequipe?>">
-                <ul>
+                <li>
                     <img class="photo_joueur" src="../img/Equipe/<?php echo $row['img']; ?>" alt="photo de <?php echo htmlspecialchars($row['nom_equipe_adverse']); ?>" width="100">
                     <h3><?php echo htmlspecialchars($row['nom_equipe_adverse']); ?></h3>
+                    <hr size="1px" noshade width="100%">
                     <?php 
                     if(isset($victoires, $defaites, $nuls)){ echo '<h4 class="dataAdverse"> Nombre de rencontres : '.$nbMatchs."<h4>"; }
                     ?>
                     <h4><?php if(isset($victoires, $defaites, $nuls)){ echo "Taux de victoire : ".(($victoires+ 0.5 * $nuls) / $nbMatchs * 100)." %";}else{ echo "Pas de matchs";} ?></h4>
                     <?php if(isset($victoires, $defaites, $nuls)){ echo '<h4 class="dataAdverse"> V : '.$victoires."| D : ".$defaites."| N : ".$nuls."<h4>"; } ?>
-                </ul>
+                </li>
             </a>
         <?php endwhile; ?>
-    </li>
+    </ul>
 
 <?php require 'footer.php'; ?>
