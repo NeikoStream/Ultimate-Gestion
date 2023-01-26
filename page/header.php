@@ -51,7 +51,7 @@
           </a></li>
       </ul>
       </div>
-      <img src="../img/menu-btn" alt="Menu hamburger" id="menuHamb">
+      <img src="../img/menu-btn.png" alt="Menu hamburger" id="menuHamb">
     </nav>
   </header>
   <script src="../js/hamb.js"></script>
