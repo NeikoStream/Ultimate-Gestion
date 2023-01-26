@@ -69,16 +69,16 @@ require '../fonctionPHP/connexionbd.php';
 
     /*echo "Date du jour : ", strftime("%d/%m/%Y");*/
 ?>
-    <h2 class="titre_joueurs">Liste des matchs à venir</h2>
-        <ul class="listejoueurs">
-            <a class="joueur" href="saisieMatch.php"><ul class="ajoutMatch">Ajouter un match</ul></a>
+    <h2 class="titre">Liste des matchs à venir</h2>
+        <ul class="liste">
+            <a class="carte" href="saisieMatch.php"><ul class="ajoutMatch">Ajouter un match</ul></a>
             <?php while($result = $requete1->fetch()): ?>
-                <a class="joueur" href="<?php echo "modifierMatch.php?datem=".$result['datem2']."&heurem=".$result['heurem']?>">
+                <a class="carte" href="<?php echo "modifierMatch.php?datem=".$result['datem2']."&heurem=".$result['heurem']?>">
                     <li>
                         <!--<img class="photo_joueur" src=<?php echo htmlspecialchars($result['image']); ?> 
                         alt="Blason de <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?>" width="100">-->
                         <h3>Le <?php echo htmlspecialchars($result['datem']); ?> à <?php echo htmlspecialchars($result['heurem'])?></h3>
-                        <p class="statut_joueur"><?php if(htmlspecialchars($result['etre_domicile'])==1)echo "A domicile";else echo"</br>";?></p>
+                        <p class="statut"><?php if(htmlspecialchars($result['etre_domicile'])==1)echo "A domicile";else echo "Extérieur";?></p>
                         <p class="nomadversaire">Adversaires : <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?></p>
                         <?php if(htmlspecialchars($result['etre_prepare'])==1) {?>
                             <h4>Joueurs Titulaire :</h4>
@@ -104,15 +104,17 @@ require '../fonctionPHP/connexionbd.php';
             <?php endwhile; ?>
         </ul>
     
-    <h2 class="titre_joueurs">Saisir le score des matchs / feuille de match</h2>
-    <ul class="listejoueurs"> 
+    <h2 class="titre">Saisir le score des matchs / feuille de match</h2>
+    <ul class="liste"> 
         <?php while($result = $requete4->fetch()): ?>
-            <a class="joueur" href="<?php echo "modifierMatch.php?datem=".$result['datem2']."&heurem=".$result['heurem']?>">
+            <a class="carte" href="<?php echo "modifierMatch.php?datem=".$result['datem2']."&heurem=".$result['heurem']?>">
                     <li>
                         <!--<img class="photo_joueur" src=<?php echo htmlspecialchars($result['image']); ?> 
                         alt="Blason de <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?>" width="100">-->
                         <h3>Le <?php echo htmlspecialchars($result['datem']); ?> à <?php echo htmlspecialchars($result['heurem'])?></h3>
-                        <p class="statut_joueur"><?php if(htmlspecialchars($result['etre_domicile'])==1)echo "A domicile";else echo"</br>";?></p>
+                        <p class="statut">
+                            <?php if(htmlspecialchars($result['etre_domicile'])==1)echo "A domicile";else echo "Extérieur";?>
+                        </p>
                         <p class="nomadversaire">Adversaires : <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?></p>
                         <?php if(htmlspecialchars($result['etre_prepare'])==1) {?>
                             <h4>Joueurs Titulaire :</h4>
@@ -142,15 +144,15 @@ require '../fonctionPHP/connexionbd.php';
         <?php endwhile; ?>
     </ul>     
 
-    <h2 class="titre_joueurs">Liste des matchs passés</h2>
-        <ul class="listejoueurs">
+    <h2 class="titre">Liste des matchs passés</h2>
+        <ul class="liste">
             <?php while($result = $requete2->fetch()): ?>
-            <a class="joueur" href="<?php echo "modifierMatch.php?datem=".$result['datem2']."&heurem=".$result['heurem']?>">
+            <a class="carte" href="<?php echo "modifierMatch.php?datem=".$result['datem2']."&heurem=".$result['heurem']?>">
                 <li>
                     <!--<img class="photo_joueur" src=<?php echo htmlspecialchars($result['image']); ?> 
                     alt="Blason de <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?>" width="100">-->
                     <h3>Le <?php echo htmlspecialchars($result['datem']); ?> à <?php echo htmlspecialchars($result['heurem'])?></h3>
-                    <p class="statut_joueur"><?php if(htmlspecialchars($result['etre_domicile'])==1)echo "A domicile";?></p>
+                    <p class="statut"><?php if(htmlspecialchars($result['etre_domicile'])==1)echo "A domicile";else echo "Extérieur";?></p>
                     <p class="nomadversaire">Adversaires : <?php echo htmlspecialchars($result['nom_equipe_adverse']); ?></p>
                     <p>Score : <?php echo htmlspecialchars($result['score_equipe']); ?>-<?php echo htmlspecialchars($result['score_adverse']); ?></p>
                     <h4 class="nomadversaire">Joueurs Titulaire :</h4>

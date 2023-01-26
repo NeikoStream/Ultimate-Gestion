@@ -16,14 +16,14 @@ $query= $linkpdo->prepare('SELECT * FROM adversaire');
 $query->execute();
 
 ?>
-    <h2 class="titre_joueurs">Liste des équipes adverses</h2>
-    <li class="listejoueurs">
-            <a class="joueur" href="saisieEquipe.php"><ul class="ajoutAdversaire">Ajouter une équipe adverse</ul></a>
+    <h2 class="titre">Liste des équipes adverses</h2>
+    <li class="liste">
+            <a class="carte" href="saisieEquipe.php"><ul class="ajoutAdversaire">Ajouter une équipe adverse</ul></a>
         <?php while ($row = $query->fetch()):
             $idequipe = $row['id_adversaire'];
             ?>
 
-            <a class="joueur" href="<?php echo "modifierEquipe.php?idequipe=".$idequipe?>">
+            <a class="carte" href="<?php echo "modifierEquipe.php?idequipe=".$idequipe?>">
                 <ul>
                     <img class="photo_joueur" src="../img/Equipe/<?php echo $row['img']; ?>" alt="photo de <?php echo htmlspecialchars($row['nom_equipe_adverse']); ?>" width="100">
                     <h3><?php echo htmlspecialchars($row['nom_equipe_adverse']); ?></h3>
