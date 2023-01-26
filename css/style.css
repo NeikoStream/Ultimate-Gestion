@@ -492,6 +492,9 @@ a {
   line-height: 9em;
   align-items: center;
 }
+.dataAdverse{
+  padding: 2%;
+}
 
 /*Page Matchs*/
 .etat-match {
