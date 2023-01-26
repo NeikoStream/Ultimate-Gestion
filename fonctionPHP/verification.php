@@ -25,11 +25,9 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             $_SESSION['connecte'] = $username;
             header('Location: ../page/accueil.php');
         } else {
-            header('Location: login.php?erreur=1'); // utilisateur ou mot de passe incorrect
+            header('Location: ../index.php?erreur=1'); // utilisateur ou mot de passe incorrect
         }
-    } else {
-        header('Location: login.php?erreur=2'); // utilisateur ou mot de passe vide
-    }
+    } 
 } else {
     header('Location: ../index.php');
 }
