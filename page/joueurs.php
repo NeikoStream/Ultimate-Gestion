@@ -16,19 +16,19 @@ $query= $linkpdo->prepare('SELECT *,DATE_FORMAT(date_naissance, "%d/%m/%Y") date
 $query->execute();
 
 ?>
-    <h2 class="titre_joueurs">Liste des joueurs</h2>
-    <ul class="listejoueurs">
-            <a class="joueur" href="saisieJoueur.php"><li class="ajoutJoueur"><p>Ajouter un joueur</p></li></a>
+    <h2 class="titre">Liste des joueurs</h2>
+    <ul class="liste">
+            <a class="carte" href="saisieJoueur.php"><li class="ajoutJoueur"><p>Ajouter un joueur</p></li></a>
         <?php while ($row = $query->fetch()):
             $numlic = $row['numero_licence'];
             ?>
 
-            <a class="joueur" href="<?php echo "modifierJoueur.php?lic=".$numlic?>">
+            <a class="carte" href="<?php echo "modifierJoueur.php?lic=".$numlic?>">
                 <li>
                     <img class="photo_joueur" src="../img/<?php echo $row['photo']; ?>" alt="photo de <?php echo htmlspecialchars($row['prenom']); ?>
                     <?php echo htmlspecialchars($row['nom']); ?>" width="100">
                     <h3><?php echo htmlspecialchars($row['prenom']); ?> <?php echo htmlspecialchars($row['nom']); ?></h3>
-                    <p class="statut_joueur"><?php echo htmlspecialchars($row['statut']); ?></p>                    
+                    <p class="statut"><?php echo htmlspecialchars($row['statut']); ?></p>                    
                     <p class="info_joueurs">Poste préféré : <?php echo htmlspecialchars($row['poste_prefere']); ?></p>
                     <p class="info_joueurs">Taille : <?php echo htmlspecialchars($row['taille']); ?> cm</p>
                     <p class="info_joueurs">Poids : <?php echo htmlspecialchars($row['poids']); ?> kg</p>

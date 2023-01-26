@@ -55,7 +55,7 @@ $matchsaison->execute();
                 <?php }else{ ?>
                     <h2 style='color: #5a5a5a'>Égalité</h2>  
                 <?php } ?>
-                <h2 id="datematch"><?php echo htmlspecialchars($match['datem']) ?></h2>
+                <h3 id="datematch"><?php echo htmlspecialchars($match['datem']) ?></h3>
             </div>
                 <h1><?php echo htmlspecialchars($match['score_adverse']) ?></h1>
             <h1><?php echo htmlspecialchars($match['nom_equipe_adverse']) ?></h1>

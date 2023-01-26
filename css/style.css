@@ -31,6 +31,7 @@ ul {
 
 li {
   list-style-type: none;
+  width: 100%;
 }
 
 a {
@@ -296,18 +297,22 @@ footer {
 }
 
 /*Page joueurs*/
-.titre_joueurs {
+.titre {
   text-align: center;
   margin: 1%;
 }
 
-.listejoueurs {
+.liste {
   display: flex;
   flex-wrap: wrap;
   margin: 1%;
 }
 
-.joueur {
+.liste hr{
+  margin: 2%;
+}
+
+.carte {
   display: flex;
   justify-content: center;
   width: 20.5%;
@@ -318,7 +323,7 @@ footer {
   margin: 1%;
 }
 
-.joueur:hover {
+.carte:hover {
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
   -moz-transform: scale(1.05);
@@ -343,7 +348,7 @@ footer {
   margin: 1%;
 }
 
-.statut_joueur {
+.statut {
   text-align: center;
   margin: 1%;
   color: grey;
@@ -491,6 +496,9 @@ a {
 .ajoutAdversaire {
   line-height: 9em;
   align-items: center;
+}
+.dataAdverse{
+  padding: 2%;
 }
 
 /*Page Matchs*/
