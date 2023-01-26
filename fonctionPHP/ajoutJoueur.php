@@ -20,7 +20,7 @@
 		if($_FILES['photo_saisie']['size'] <= $tailleMax){
 			$extensionUpload = strtolower(substr(strrchr($_FILES['photo_saisie']['name'], '.'), 1));
 			if(in_array($extensionUpload,$extensionsValides)){
-				$chemin = "../img/".$numero_licence.".".$extensionUpload;
+				$chemin = "../img/Joueurs/".$numero_licence.".".$extensionUpload;
 				$resultat = move_uploaded_file($_FILES['photo_saisie']['tmp_name'],$chemin);
 				if($resultat){
 					$photo = $numero_licence.".".$extensionUpload;;

@@ -4,7 +4,7 @@
 require '../fonctionPHP/authentification.php';
 forcer_utilisateur_connecte();
 //Appel du header
-$title = "modifier Match";
+$title = "Feuille de match";
 require 'header.php'; 
 $heurem = htmlspecialchars($_GET["heurem"]);
 $datem = htmlspecialchars($_GET["datem"]);
@@ -76,7 +76,7 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
                             while ($joueur = $joueurs->fetch()):
                             ?>
                         <tr>
-                            <td><img src="../img/<?php echo htmlspecialchars($joueur['photo']) ?>" alt="" height=50 width=50></td>
+                            <td><img src="../img/Joueurs/<?php echo htmlspecialchars($joueur['photo']) ?>" alt="" height=50 width=50></td>
                             <td><?php echo htmlspecialchars($joueur['numero_licence']) ?></td>
                             <td><?php echo htmlspecialchars($joueur['nom']) ?></td>
                             <td><?php echo htmlspecialchars($joueur['prenom']) ?></td>
