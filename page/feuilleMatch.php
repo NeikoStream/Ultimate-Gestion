@@ -16,7 +16,7 @@ $joueurs = $linkpdo->prepare('SELECT DISTINCT * from joueur where joueur.numero_
 $joueurs->execute(array('datem' => $datem , 'heurem' => $heurem));
 
 //recuperer les participant d'un match
-$paticipants = $linkpdo->prepare('SELECT participer.datem,participer.heurem ,joueur.numero_licence,joueur.nom,joueur.prenom, participer.etre_titulaire, participer.poste from joueur,participer where participer.datem = :datem AND participer.heurem = :heurem AND joueur.numero_licence = participer.numero_licence;');
+$paticipants = $linkpdo->prepare('SELECT participer.datem,participer.heurem ,joueur.numero_licence,joueur.nom,joueur.prenom,participer.etre_titulaire, participer.poste ,participer.performance from joueur,participer where participer.datem = :datem AND participer.heurem = :heurem AND joueur.numero_licence = participer.numero_licence;');
 $paticipants->execute(array('datem' => $datem , 'heurem' => $heurem));
 
 //preparation de la requete d'ajout d'un joueur a un match
@@ -26,7 +26,7 @@ $addplayer = $linkpdo->prepare('INSERT INTO participer (numero_licence,datem, he
 $deleteplayer = $linkpdo->prepare('DELETE from participer where numero_licence = :numero_licence AND datem = :datem AND heurem = :heurem');
 
 //preparation de la requete d'edition d'un joueur a un match
-$editplayer = $linkpdo->prepare('UPDATE participer SET etre_titulaire = :etre_titulaire ,poste = :poste where numero_licence = :numero_licence AND datem = :datem AND heurem = :heurem');
+$editplayer = $linkpdo->prepare('UPDATE participer SET etre_titulaire = :etre_titulaire ,poste = :poste , performance = :performance where numero_licence = :numero_licence AND datem = :datem AND heurem = :heurem');
 
 //recup nbTitulaire
 $nbpaticipants = $linkpdo->prepare('SELECT count(*) as nb from joueur,participer where participer.etre_titulaire = 1 AND  participer.datem = :datem AND participer.heurem = :heurem AND joueur.numero_licence = participer.numero_licence;');
@@ -116,6 +116,7 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
                             <th>Nom</th>
                             <th>Prénom</th>
                             <th>Rôle</th>
+                            <th>Note / 5</th>
                             <th>Titulaire</th>
                             <th><input type="submit" class="button1" name="Actualiser" value="Actualiser"></th>
                         </tr>
@@ -125,18 +126,19 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
                         $joueurparticipant = 0;
                         while ($paticipant = $paticipants->fetch()):
                             $idJoueurs[$joueurparticipant] = $paticipant['numero_licence'];?>
+                            
                         <tr>
                             
                             <td><?php echo htmlspecialchars($paticipant['numero_licence']) ?></td>
                             <td><?php echo htmlspecialchars($paticipant['nom']) ?></td>
                             <td><?php echo htmlspecialchars($paticipant['prenom']) ?></td>
-                            
                             <td><select name="poste<?php echo $joueurparticipant?>" id="poste_saisie">
                                     <option value="<?php echo htmlspecialchars($paticipant['poste']) ?>">[ <?php echo htmlspecialchars($paticipant['poste']) ?> ]</option>
                                     <option value="Attaquant">Attaquant</option>
                                     <option value="Défenseur">Défenseur</option>
                                     <option value="Aucun">Aucun</option>
                                 </select></td>
+                            <td><input type="number" name="note<?php echo $joueurparticipant?>" id="nom_saisie" placeholder="Ex : 5" value="<?php echo htmlspecialchars($paticipant['performance']) ?>" max="5" autofocus /><br></td>
                             <td><input type="checkbox" name="etretitulaire<?php echo $joueurparticipant?>" id="etretitulaire" <?php if ($paticipant['etre_titulaire']) {
                             echo "checked"; } ?>/></td>
                             <td><input type="submit" name="delete<?php echo $joueurparticipant?>" value="Supprimer"></td>
@@ -172,8 +174,16 @@ $editetat = $linkpdo->prepare('UPDATE matchs SET etre_prepare = :etre_prepare wh
                                         $poste = NULL;
                                     }
 
+                                    if (isset($_POST['note'.$a])){
+                                        $performance = $_POST['note'.$a];
+                                    }else{
+                                        $performance = NULL;
+                                    }
+
                                     
-                                    $editplayer->execute(array('poste' => $poste,'etre_titulaire'=> $etretitulaire,'numero_licence' =>$idJoueurs[$a] ,'datem' => $datem , 'heurem' => $heurem));
+
+                                    
+                                    $editplayer->execute(array('poste' => $poste,'etre_titulaire'=> $etretitulaire,'numero_licence' =>$idJoueurs[$a] ,'performance' => $performance ,'datem' => $datem , 'heurem' => $heurem));
                                 $a++;
                             endwhile;
                             
