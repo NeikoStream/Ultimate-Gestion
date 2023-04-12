@@ -1,3 +1,4 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/neikostream/ultimate-gestion/badge)](https://www.codefactor.io/repository/github/neikostream/ultimate-gestion)
 # Ultimate-Gestion
 
 ## Sujet : Gestion d'une équipe de sport
